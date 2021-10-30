@@ -2,9 +2,8 @@ package com.example.mydiceroller
 
 import android.os.Bundle
 import android.widget.Button
-import android.widget.TextView
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.text.isDigitsOnly
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,33 +22,25 @@ class MainActivity : AppCompatActivity() {
 
     private fun rollDice() {
 //        Toast.makeText(this, "button clicked", Toast.LENGTH_SHORT).show()
-        val resultText: TextView = findViewById(R.id.result_text)
-        val randomInt = (1..6).random()
-        resultText.text = randomInt.toString()
+//        val resultText: TextView = findViewById(R.id.result_text)
+        val diceImage: ImageView = findViewById(R.id.dice_image)
+        val drawableResource = when ((1..6).random()) {
+            1 -> R.drawable.dice_1
+            2 -> R.drawable.dice_2
+            3 -> R.drawable.dice_3
+            4 -> R.drawable.dice_4
+            5 -> R.drawable.dice_5
+            else -> R.drawable.dice_6
+        }
+        diceImage.setImageResource(drawableResource)
+
     }
 
     private fun countUp() {
-        val resultText: TextView = findViewById(R.id.result_text)
-        if (!resultText.text.isDigitsOnly()) {
-            resultText.text = "1"
-            return
-        }
-        // The text value in resultText.text is an instance of the CharSequence class;
-        // it needs to be converted to a String object before it can be converted to an int.
-        var currentNumber: Int = resultText.text.toString().toInt()
-        if (6 <= currentNumber) {
-            return
-        }
-        currentNumber++;
-        resultText.text = currentNumber.toString()
+
     }
 
     private fun reset() {
-        val resultText: TextView = findViewById(R.id.result_text)
-        if (!resultText.text.isDigitsOnly()) {
-            return
-        }
-
-        resultText.text = "0"
+        
     }
 }
