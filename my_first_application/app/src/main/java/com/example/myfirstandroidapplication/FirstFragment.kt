@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.myfirstandroidapplication.databinding.FragmentFirstBinding
@@ -40,6 +41,10 @@ class FirstFragment : Fragment() {
             myToast.show();
         }
 
+        view.findViewById<Button>(R.id.count_button).setOnClickListener {
+            incrementCount(view);
+        }
+
 //        binding.randomButton.setOnClickListener {
 //            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
 //        }
@@ -48,5 +53,16 @@ class FirstFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun incrementCount(view: View) {
+        val showCountTextView = view.findViewById<TextView>(R.id.textview_first);
+
+        val countString = showCountTextView.text.toString();
+
+        var count = countString.toInt();
+        count++;
+
+        showCountTextView.text = count.toString();
     }
 }
