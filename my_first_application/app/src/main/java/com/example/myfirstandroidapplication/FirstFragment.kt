@@ -45,6 +45,14 @@ class FirstFragment : Fragment() {
             incrementCount(view);
         }
 
+        view.findViewById<Button>(R.id.random_button).setOnClickListener {
+            val showCountTextView = view.findViewById<TextView>(R.id.textview_first)
+            val currentCount = showCountTextView.text.toString().toInt()
+            val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(currentCount)
+            findNavController().navigate(action)
+        }
+
+
 //        binding.randomButton.setOnClickListener {
 //            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
 //        }
