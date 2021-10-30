@@ -16,6 +16,9 @@ class MainActivity : AppCompatActivity() {
 
         val countUpButton: Button = findViewById(R.id.count_up_button)
         countUpButton.setOnClickListener { countUp() }
+
+        val resetButton: Button = findViewById(R.id.reset_button)
+        resetButton.setOnClickListener { reset() }
     }
 
     private fun rollDice() {
@@ -39,5 +42,14 @@ class MainActivity : AppCompatActivity() {
         }
         currentNumber++;
         resultText.text = currentNumber.toString()
+    }
+
+    private fun reset() {
+        val resultText: TextView = findViewById(R.id.result_text)
+        if (!resultText.text.isDigitsOnly()) {
+            return
+        }
+
+        resultText.text = "0"
     }
 }
