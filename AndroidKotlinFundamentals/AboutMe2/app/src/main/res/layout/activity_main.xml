@@ -46,6 +46,8 @@
         style="@style/NameStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:paddingBottom="@dimen/layout_padding"
         android:textAlignment="center"
         android:visibility="gone" />
 

@@ -17,6 +17,25 @@ class MainActivity : AppCompatActivity() {
 
         val doneButton = findViewById<Button>(R.id.done_button)
         doneButton.setOnClickListener { addNickname(it) }
+
+        val nicknameTextView = findViewById<TextView>(R.id.nickname_text)
+        nicknameTextView.setOnClickListener { updateNickname(it) }
+    }
+
+    private fun updateNickname (view: View) {
+        val editText = findViewById<EditText>(R.id.nickname_edit)
+        val doneButton = findViewById<Button>(R.id.done_button)
+
+        editText.visibility = View.VISIBLE
+        doneButton.visibility = View.VISIBLE
+        view.visibility = View.GONE
+
+        // Set the focus to the edit text.
+        editText.requestFocus()
+
+        // Show the keyboard.
+        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.showSoftInput(editText, 0)
     }
 
     private fun addNickname(view: View) {
