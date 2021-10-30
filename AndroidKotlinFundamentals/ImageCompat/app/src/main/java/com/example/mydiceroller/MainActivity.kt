@@ -5,28 +5,32 @@ import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
+
 class MainActivity : AppCompatActivity() {
-    lateinit var diceImage: ImageView
-    var currentNumber: Int = 0
+    private lateinit var diceImage1: ImageView
+    private lateinit var diceImage2: ImageView
+    private var currentNumberDice1: Int = 0
+    private var currentNumberDice2: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        diceImage = findViewById(R.id.dice_image)
+        diceImage1 = findViewById(R.id.dice_image_1)
+        diceImage2 = findViewById(R.id.dice_image_2)
 
         val rollButton: Button = findViewById(R.id.roll_button)
-        rollButton.setOnClickListener { rollDice(diceImage) }
+        rollButton.setOnClickListener { rollDice(diceImage1, diceImage2) }
 
         val countUpButton: Button = findViewById(R.id.count_up_button)
-        countUpButton.setOnClickListener { countUp(diceImage) }
+        countUpButton.setOnClickListener { countUp(diceImage1, diceImage2) }
 
         val resetButton: Button = findViewById(R.id.reset_button)
-        resetButton.setOnClickListener { reset(diceImage) }
+        resetButton.setOnClickListener { reset(diceImage1, diceImage2) }
     }
 
-    private fun updateCurrentNumber(number: Int) {
-        currentNumber = number
+    private fun generateRandomNumber(): Int {
+        return (1..6).random()
     }
 
     private fun getDrawableResource(number: Int): Int {
@@ -40,24 +44,38 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun rollDice(diceImage: ImageView) {
-        val randomNumber = (1..6).random()
-        updateCurrentNumber(randomNumber)
+    private fun setDiceImage(diceImage: ImageView) {
+        val randomNumber = generateRandomNumber()
         val drawableResource = getDrawableResource(randomNumber)
         diceImage.setImageResource(drawableResource)
 
-    }
-
-    private fun countUp(diceImage: ImageView) {
-        if (this.currentNumber == 0 || 6 <= this.currentNumber) {
-            return
+        if (diceImage == diceImage1) {
+            currentNumberDice1 = randomNumber
+        } else {
+            currentNumberDice2 = randomNumber
         }
-        this.currentNumber++
-        val drawableResource = getDrawableResource(this.currentNumber)
-        diceImage.setImageResource(drawableResource)
     }
 
-    private fun reset(diceImage: ImageView) {
-        diceImage.setImageResource(R.drawable.empty_dice)
+    private fun rollDice(diceImage1: ImageView, diceImage2: ImageView) {
+        setDiceImage(diceImage1)
+        setDiceImage(diceImage2)
+    }
+
+    private fun countUp(diceImage1: ImageView, diceImage2: ImageView) {
+        if (this.currentNumberDice1 != 0 && this.currentNumberDice1 < 6) {
+            this.currentNumberDice1++
+            val drawableResource = getDrawableResource(this.currentNumberDice1)
+            diceImage1.setImageResource(drawableResource)
+        }
+        if (this.currentNumberDice2 != 0 && this.currentNumberDice2 < 6) {
+            this.currentNumberDice2++
+            val drawableResource = getDrawableResource(this.currentNumberDice2)
+            diceImage2.setImageResource(drawableResource)
+        }
+    }
+
+    private fun reset(diceImage1: ImageView, diceImage2: ImageView) {
+        diceImage1.setImageResource(R.drawable.empty_dice)
+        diceImage2.setImageResource(R.drawable.empty_dice)
     }
 }
