@@ -22,6 +22,8 @@ buildscript {
         gradleVersion = '4.1.0'
         supportlibVersion = '1.2.0'
         dataBindingCompilerVersion = gradleVersion // Always need to be the same.
+        android:name="com.example.android.navigation.TitleFragment"
+        navigationVersion = "2.3.0"
     }
     repositories {
         google()
