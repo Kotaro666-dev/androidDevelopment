@@ -10,12 +10,13 @@ import com.example.aboutme.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-
+    private val myName: MyName = MyName("Kotaro")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding.myName = myName
         binding.doneButton.setOnClickListener { addNickname() }
         binding.nicknameText.setOnClickListener { updateNickname() }
     }
@@ -34,10 +35,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun addNickname() {
-        binding.nicknameText.text = binding.nicknameEdit.text.toString()
-        binding.nicknameEdit.visibility = View.GONE
-        binding.doneButton.visibility = View.GONE
-        binding.nicknameText.visibility = View.VISIBLE
+        binding.apply {
+            binding.myName?.nickname = nicknameEdit.text.toString()
+            // Invalidates all binding expressions and requests a new rebind to refresh UI.
+            invalidateAll()
+            nicknameEdit.visibility = View.GONE
+            doneButton.visibility = View.GONE
+            nicknameText.visibility = View.VISIBLE
+        }
 
         // Hide the keyboard.
         val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
