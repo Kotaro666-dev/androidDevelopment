@@ -20,6 +20,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-kapt'
 
+apply plugin: 'androidx.navigation.safeargs'
+
 android {
     compileSdkVersion 31
     compileOptions {
@@ -45,6 +47,10 @@ android {
     }
     buildFeatures {
         dataBinding true
+    }
+    // REF: https://stackoverflow.com/questions/50686907/safeargs-library-doesnt-generate-direction-class
+    sourceSets {
+        getByName("main").java.srcDirs("build/generated/source/navigation-args")
     }
 }
 
