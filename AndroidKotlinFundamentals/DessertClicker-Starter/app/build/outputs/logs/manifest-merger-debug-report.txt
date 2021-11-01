@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:17:1-36:12
-INJECTED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:17:1-36:12
-INJECTED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:17:1-36:12
-INJECTED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:17:1-36:12
+ADDED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:17:1-37:12
+INJECTED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:17:1-37:12
+INJECTED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:17:1-37:12
+INJECTED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:17:1-37:12
 MERGED from [androidx.databinding:databinding-adapters:4.0.2] /Users/Kotaro/.gradle/caches/transforms-3/ae489ff12086ad20af2f933915953a78/transformed/databinding-adapters-4.0.2/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.databinding:databinding-runtime:4.0.2] /Users/Kotaro/.gradle/caches/transforms-3/b534c2302111be8f6b2927ebe2f3590c/transformed/databinding-runtime-4.0.2/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.0-rc1] /Users/Kotaro/.gradle/caches/transforms-3/5da94a927cdeae1edf924463253d09b8/transformed/constraintlayout-2.0.0-rc1/AndroidManifest.xml:2:1-11:12
@@ -29,25 +29,25 @@ MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/Kotaro/.gradle/cac
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/Kotaro/.gradle/caches/transforms-3/e0d52e233b15f65964ade98a7b0f310e/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/Kotaro/.gradle/caches/transforms-3/4ce2f7f3eed1e3fe7dfd0fc990f73a20/transformed/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/Kotaro/.gradle/caches/transforms-3/d7632e11c79c274b7074a54c385aee82/transformed/core-runtime-2.0.0/AndroidManifest.xml:17:1-22:12
-INJECTED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:17:1-36:12
-INJECTED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:17:1-36:12
-INJECTED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:17:1-36:12
+INJECTED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:17:1-37:12
+INJECTED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:17:1-37:12
+INJECTED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:17:1-37:12
 	package
 		ADDED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:18:5-49
 		INJECTED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml
-		ADDED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:17:1-36:12
+		ADDED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:17:1-37:12
 		INJECTED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml
-		ADDED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:17:1-36:12
+		ADDED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:17:1-37:12
 		INJECTED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:17:11-69
 application
-ADDED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:20:5-34:19
+ADDED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:20:5-35:19
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.0-rc1] /Users/Kotaro/.gradle/caches/transforms-3/5da94a927cdeae1edf924463253d09b8/transformed/constraintlayout-2.0.0-rc1/AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.0-rc1] /Users/Kotaro/.gradle/caches/transforms-3/5da94a927cdeae1edf924463253d09b8/transformed/constraintlayout-2.0.0-rc1/AndroidManifest.xml:9:5-20
 MERGED from [com.jakewharton.timber:timber:5.0.1] /Users/Kotaro/.gradle/caches/transforms-3/d5b25e0417f8329b4eed5c93c59409fc/transformed/jetified-timber-5.0.1/AndroidManifest.xml:7:5-20
@@ -70,20 +70,22 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/Kota
 		ADDED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:21:9-35
 	android:theme
 		ADDED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:26:9-40
+	android:name
+		ADDED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:27:9-43
 activity#com.example.android.dessertclicker.MainActivity
-ADDED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:27:9-33:20
+ADDED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:28:9-34:20
 	android:name
-		ADDED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:27:19-81
+		ADDED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:28:19-81
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:28:13-32:29
+ADDED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:29:13-33:29
 action#android.intent.action.MAIN
-ADDED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:29:17-69
+ADDED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:30:17-69
 	android:name
-		ADDED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:29:25-66
+		ADDED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:30:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:31:17-77
+ADDED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:32:17-77
 	android:name
-		ADDED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:31:27-74
+		ADDED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml:32:27-74
 uses-sdk
 INJECTED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/DessertClicker-Starter/app/src/main/AndroidManifest.xml
