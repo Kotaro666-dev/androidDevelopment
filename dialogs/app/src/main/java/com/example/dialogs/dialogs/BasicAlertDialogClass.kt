@@ -11,7 +11,7 @@ class BasicAlertDialogClass: DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
             // Use the Builder class for convenient dialog construction
-            val builder = AlertDialog.Builder(it)
+            val builder = AlertDialog.Builder(it, R.style.CustomMaterialDialog)
             builder.setMessage(R.string.dialogMessage)
                 .setPositiveButton(
                     R.string.okButtonTitle,
