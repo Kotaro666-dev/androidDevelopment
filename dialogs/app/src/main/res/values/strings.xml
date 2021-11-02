@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">dialogs</string>
+    <string name="dialogMessage">会員登録に進みますか？</string>
+    <string name="okButtonTitle">はい</string>
+    <string name="noButtonTitle">いいえ</string>
+    <string name="basicButtonDialogTitle">Basic Alert Dialog</string>
 </resources>

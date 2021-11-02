@@ -6,6 +6,9 @@ plugins {
 android {
     compileSdk 30
 
+    viewBinding {
+        enabled = true
+    }
     defaultConfig {
         applicationId "com.example.dialogs"
         minSdk 21
