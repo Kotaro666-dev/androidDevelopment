@@ -1,26 +1,25 @@
 package com.example.layout
 
+import android.graphics.drawable.Icon
 import android.os.Bundle
+import android.service.autofill.OnClickAction
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -41,26 +40,10 @@ class MainActivity : ComponentActivity() {
 fun LayoutCodeLab() {
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = {
-                    Text(text = "LayoutCodelab")
-                },
-                actions = {
-                    IconButton(onClick = { /*TODO*/ }) {
-                        Icon(
-                            Icons.Filled.Favorite, contentDescription = null,
-                            tint = Color.White
-                        )
-                    }
-                },
-                navigationIcon = {
-                    IconButton(onClick = { /*TODO*/ }) {
-                        Icon(Icons.Filled.ArrowBack, contentDescription = null)
-                    }
-                }
-
-            )
-
+            TopAppBar()
+        },
+        bottomBar = {
+            BottomNavigationBar()
         }
     ) { innerPadding ->
         BodyContent(modifier = Modifier.padding(innerPadding))
@@ -68,8 +51,63 @@ fun LayoutCodeLab() {
 }
 
 @Composable
+fun BottomNavigationBar() {
+    BottomAppBar {
+        Row(
+            horizontalArrangement = Arrangement.SpaceEvenly,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            BottomNavigationBarItem(
+                onClick = {},
+                title = "Home",
+                iconAsset = Icons.Filled.Home
+            )
+            BottomNavigationBarItem(
+                onClick = {},
+                title = "Search",
+                iconAsset = Icons.Filled.Search
+            )
+            BottomNavigationBarItem(
+                onClick = {},
+                title = "Settings",
+                iconAsset = Icons.Filled.Settings
+            )
+        }
+    }
+}
+
+@Composable
+fun BottomNavigationBarItem(onClick: () -> Unit, title: String, iconAsset: ImageVector) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        IconButton(onClick = onClick, modifier = Modifier.size(24.dp)) {
+            Icon(iconAsset, contentDescription = null)
+        }
+        Text(text = title)
+    }
+}
+
+@Composable
 fun TopAppBar() {
-    {}
+    TopAppBar(
+        title = {
+            Text(text = "LayoutCodelab")
+        },
+        actions = {
+            IconButton(onClick = { /*TODO*/ }) {
+                Icon(
+                    Icons.Filled.Favorite, contentDescription = null,
+                    tint = Color.White
+                )
+            }
+        },
+        navigationIcon = {
+            IconButton(onClick = { /*TODO*/ }) {
+                Icon(Icons.Filled.ArrowBack, contentDescription = null)
+            }
+        },
+    )
 }
 
 @Composable
