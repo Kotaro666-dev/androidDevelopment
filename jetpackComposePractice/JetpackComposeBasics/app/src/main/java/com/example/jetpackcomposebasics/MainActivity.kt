@@ -5,6 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -16,7 +18,8 @@ import com.example.jetpackcomposebasics.ui.theme.JetpackComposeBasicsTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val names: List<String> = listOf("World", "Compose")
+//        val names: List<String> = listOf("World", "Compose")
+        val names: List<String> = List(1000) { "$it" }
         setContent {
             JetpackComposeBasicsTheme {
                 MyApp(names = names)
@@ -32,17 +35,26 @@ private fun MyApp(names: List<String>) {
         if (shouldShowOnBoarding) {
             OnBoardingScreen(onClickAction = {shouldShowOnBoarding = false})
         } else {
-            Greeting("Android")
-            Column {
-                for (name in names) {
+            LazyColumn(modifier = Modifier.padding(vertical = 4.dp)) {
+                items(items = names) { name ->
                     Greeting(name = name)
                 }
-                Button(
-                    onClick = { shouldShowOnBoarding = true },
-                ) {
-                    Text("Go back")
-                }
             }
+
+//            Column{
+//                Greeting("Android")
+//                Button(
+//                    onClick = { shouldShowOnBoarding = true },
+//                ) {
+//                    Text("Go back")
+//                }
+//            }
+
+//            Column {
+//                for (name in names) {
+//                    Greeting(name = name)
+//                }
+//            }
         }
 
 //
