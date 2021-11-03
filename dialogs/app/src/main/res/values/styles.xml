@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomMaterialDialog" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="colorPrimary">@color/black</item>
+    </style>
+</resources>
+
+    <!--    https://stackoverflow.com/questions/26455919/material-design-not-styling-alert-dialogs/29810469#29810469-->
