@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/DataBindingWithViewModelAndLiveData.iml" filepath="$PROJECT_DIR$/.idea/modules/DataBindingWithViewModelAndLiveData.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/DataBindingWithViewModelAndLiveData.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/DataBindingWithViewModelAndLiveData.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/LiveDataTransformations.iml" filepath="$PROJECT_DIR$/.idea/modules/LiveDataTransformations.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/LiveDataTransformations.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/LiveDataTransformations.app.iml" />
     </modules>
   </component>
 </project>
