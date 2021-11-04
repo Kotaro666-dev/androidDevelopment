@@ -23,6 +23,12 @@ import coil.compose.rememberImagePainter
 import com.example.layout.ui.theme.LayoutTheme
 import kotlinx.coroutines.launch
 
+val topics = listOf(
+    "Arts & Crafts", "Beauty", "Books", "Business", "Comics", "Culinary",
+    "Design", "Fashion", "Film", "History", "Maths", "Music", "People", "Philosophy",
+    "Religion", "Social sciences", "Technology", "TV", "Writing"
+)
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -110,11 +116,16 @@ fun TopAppBar() {
 
 @Composable
 fun BodyContent(modifier: Modifier = Modifier) {
-    MyOwnColumn(
-        modifier = Modifier.padding(8.dp)
-    ) {
-        ScrollingList()
+    StaggeredGrid(modifier = modifier, rows = 5) {
+        for (topic in topics) {
+            Chip(modifier = Modifier.padding(8.dp), text = topic)
+        }
     }
+//    MyOwnColumn(
+//        modifier = Modifier.padding(8.dp)
+//    ) {
+//        ScrollingList()
+//    }
 }
 
 @Composable
@@ -214,6 +225,16 @@ fun LayoutCodeLabPreview() {
     LayoutTheme {
         LayoutCodeLab()
     }
+}
+
+@Preview
+@Composable
+fun LayoutsCodelabPreview() {
+    LayoutTheme {
+        BodyContent()
+    }
+}
+
 
 //@Composable
 //fun PhotographerCard() {
@@ -253,4 +274,4 @@ fun LayoutCodeLabPreview() {
 //    LayoutTheme {
 //        PhotographerCard()
 //    }
-}
+//}
