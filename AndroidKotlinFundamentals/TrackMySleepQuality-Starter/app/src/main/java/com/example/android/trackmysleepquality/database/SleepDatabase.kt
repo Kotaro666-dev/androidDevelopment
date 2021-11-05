@@ -23,22 +23,26 @@ import androidx.room.RoomDatabase
 
 @Database(entities = [SleepNight::class], version = 1, exportSchema = false)
 abstract class SleepDatabase : RoomDatabase() {
+
     abstract val sleepDatabaseDao: SleepDatabaseDao
 
     companion object {
+
         @Volatile
         private var INSTANCE: SleepDatabase? = null
 
         fun getInstance(context: Context): SleepDatabase {
-            // rapping the code to get the database into synchronized means that only one thread of execution at a time can enter this block of code, which makes sure the database only gets initialized once.
             synchronized(this) {
                 var instance = INSTANCE
+
                 if (instance == null) {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         SleepDatabase::class.java,
                         "sleep_history_database"
-                    ).fallbackToDestructiveMigration().build()
+                    )
+                        .fallbackToDestructiveMigration()
+                        .build()
                     INSTANCE = instance
                 }
                 return instance
