@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WebViewMockup</string>
+    <string name="open_webView_string">Open WebView</string>
 </resources>
