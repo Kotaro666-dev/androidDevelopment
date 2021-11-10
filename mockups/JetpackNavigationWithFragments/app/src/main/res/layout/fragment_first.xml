@@ -15,4 +15,11 @@
         android:layout_height="wrap_content"
         android:text="@string/fragment_first_button_title" />
 
+    <Button
+        android:id="@+id/fragment_fragment_navigate_to_fragment_third"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fragment_first_go_to_fragment_third_button_title" />
+
 </LinearLayout>
+

@@ -13,9 +13,18 @@
             app:destination="@id/fragmentSecond"
             app:popUpTo="@id/fragmentFirst"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_fragmentFirst_to_fragmentThird"
+            app:destination="@id/fragmentThird"
+            app:popUpTo="@id/fragmentFirst"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/fragmentSecond"
         android:name="com.example.jetpacknavigationwithfragments.FragmentSecond"
         android:label="FragmentSecond" />
+    <fragment
+        android:id="@+id/fragmentThird"
+        android:name="com.example.jetpacknavigationwithfragments.FragmentThird"
+        android:label="FragmentThird" />
 </navigation>
