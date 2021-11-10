@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">JetpackNavigationWithFragments</string>
+    <string name="fragment_first_button_title">Go to fragment Second</string>
+    <string name="fragment_first_text_view_title">Fragment First</string>
+    <string name="fragment_second_text_view_title">Fragment Second</string>
 </resources>
