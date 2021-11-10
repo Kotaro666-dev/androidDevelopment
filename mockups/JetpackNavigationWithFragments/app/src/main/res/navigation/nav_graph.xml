@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/fragmentFirst"
-        android:name="com.example.jetpacknavigationwithfragments.FragmentFirst"
+        android:name="com.example.jetpacknavigationwithfragments.fragments.FragmentFirst"
         android:label="FragmentFirst" >
         <action
             android:id="@+id/action_fragmentFirst_to_fragmentSecond"
@@ -21,10 +21,10 @@
     </fragment>
     <fragment
         android:id="@+id/fragmentSecond"
-        android:name="com.example.jetpacknavigationwithfragments.FragmentSecond"
+        android:name="com.example.jetpacknavigationwithfragments.fragments.FragmentSecond"
         android:label="FragmentSecond" />
     <fragment
         android:id="@+id/fragmentThird"
-        android:name="com.example.jetpacknavigationwithfragments.FragmentThird"
+        android:name="com.example.jetpacknavigationwithfragments.fragments.FragmentThird"
         android:label="FragmentThird" />
 </navigation>

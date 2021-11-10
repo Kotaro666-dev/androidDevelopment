@@ -1,4 +1,4 @@
-package com.example.jetpacknavigationwithfragments
+package com.example.jetpacknavigationwithfragments.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.appcompat.app.AppCompatActivity
+import com.example.jetpacknavigationwithfragments.R
 
 class FragmentFirst : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
