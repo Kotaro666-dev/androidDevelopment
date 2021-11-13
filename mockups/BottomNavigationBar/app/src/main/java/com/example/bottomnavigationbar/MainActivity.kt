@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationViewPager.adapter = BottomNavigationPagerAdapter(this)
         binding.bottomNavigationViewPager.isUserInputEnabled = false
 
-        binding.bottomNavigation.setOnNavigationItemSelectedListener {
+        binding.bottomNavigation.setOnItemSelectedListener {
             val currentItem =
                 when (it.itemId) {
                     R.id.home_tab -> 0
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
                     else -> 0
                 }
             binding.bottomNavigationViewPager.setCurrentItem(currentItem, false)
-            return@setOnNavigationItemSelectedListener true
+            return@setOnItemSelectedListener true
         }
     }
 
