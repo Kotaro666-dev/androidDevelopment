@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@+id/home_tab">
+
+    <fragment
+        android:id="@+id/home_tab"
+        android:name="com.example.bottomnavigationbarwithsavefragmentinstancestate.HomeFragment"
+        android:label="HomeFragment" />
+    <fragment
+        android:id="@+id/my_page_tab"
+        android:name="com.example.bottomnavigationbarwithsavefragmentinstancestate.MyPageFragment"
+        android:label="MyPageFragment" />
+    <fragment
+        android:id="@+id/view_tab"
+        android:name="com.example.bottomnavigationbarwithsavefragmentinstancestate.ViewFragment"
+        android:label="ViewFragment" />
+    <fragment
+        android:id="@+id/register_tab"
+        android:name="com.example.bottomnavigationbarwithsavefragmentinstancestate.RegisterFragment"
+        android:label="RegisterFragment" />
+</navigation>

@@ -2,7 +2,10 @@ package com.example.bottomnavigationbarwithsavefragmentinstancestate
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
 import com.example.bottomnavigationbarwithsavefragmentinstancestate.databinding.ActivityMainBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,6 +15,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+
+        // 下部メニューコンポーネントの取得
+        val bottomNavView: BottomNavigationView = binding.bottomNavigation
+        // ナビゲーションフラグメントの取得
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+        // 下部メニューとナビゲーションを関連付け
+        NavigationUI.setupWithNavController(bottomNavView, navController)
         setContentView(binding.root)
     }
 

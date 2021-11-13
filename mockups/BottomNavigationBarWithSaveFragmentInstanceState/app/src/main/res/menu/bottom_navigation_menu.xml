@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <item
+        android:id="@+id/home_tab"
+        android:enabled="true"
+        android:title="Home" />
+    <item
+        android:id="@+id/register_tab"
+        android:enabled="true"
+        android:title="登録" />
+    <item
+        android:id="@+id/view_tab"
+        android:enabled="true"
+        android:title="確認" />
+    <item
+        android:id="@+id/my_page_tab"
+        android:enabled="true"
+        android:title="マイページ" />
 </menu>
