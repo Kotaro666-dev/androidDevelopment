@@ -20,12 +20,13 @@ class MainActivity : AppCompatActivity() {
         // 下部メニューコンポーネントの取得
         val bottomNavView: BottomNavigationView = binding.bottomNavigation
         // ナビゲーションフラグメントの取得
+        // REF: https://stackoverflow.com/questions/58703451/fragmentcontainerview-as-navhostfragment
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_fragment) as NavHostFragment
         val navController = navHostFragment.navController
         // 下部メニューとナビゲーションを関連付け
         NavigationUI.setupWithNavController(bottomNavView, navController)
-        setContentView(binding.root)
+        setContentView(view)
     }
 
     override fun onDestroy() {
