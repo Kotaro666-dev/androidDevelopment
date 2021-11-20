@@ -25,10 +25,10 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/filled_button"
-        android:text="Filled Button"
+        android:text="Outlined Button"
         android:textColor="@color/white"
-        android:textFontWeight="700"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_view" />
@@ -43,8 +43,8 @@
         android:background="@drawable/filled_button"
         android:text="Filled Button"
         android:textColor="@color/white"
-        android:textFontWeight="700"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/outlined_button" />
@@ -59,8 +59,8 @@
         android:gravity="center"
         android:text="TEXT BUTTON"
         android:textColor="@color/theme_color"
-        android:textFontWeight="700"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/filled_button" />
