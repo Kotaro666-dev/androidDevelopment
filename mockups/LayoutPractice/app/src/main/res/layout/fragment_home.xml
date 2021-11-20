@@ -9,4 +9,19 @@
         android:layout_height="wrap_content"
         android:text="Home Fragment" />
 
+    <android.widget.Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/outlined_button"
+        android:text="Outlined Button"
+        android:textColor="@color/theme_color" />
+
+    <android.widget.Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/filled_button"
+        android:text="Filled Button"
+        android:textColor="@color/white" />
+
+
 </LinearLayout>
