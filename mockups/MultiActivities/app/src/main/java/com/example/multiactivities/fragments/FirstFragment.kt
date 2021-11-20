@@ -1,11 +1,14 @@
 package com.example.multiactivities.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.multiactivities.activities.SecondActivity
 import com.example.multiactivities.databinding.FragmentFirstBinding
+
 
 class FirstFragment : Fragment() {
     private var _binding: FragmentFirstBinding? = null
@@ -29,6 +32,7 @@ class FirstFragment : Fragment() {
     }
 
     private fun onClickGoToSecondFragmentButton() {
-
+        val intent = Intent(activity, SecondActivity::class.java)
+        startActivity(intent)
     }
 }
