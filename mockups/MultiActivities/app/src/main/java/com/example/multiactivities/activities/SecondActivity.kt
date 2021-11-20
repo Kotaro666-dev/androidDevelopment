@@ -1,4 +1,4 @@
-package com.example.multiactivities.fragments
+package com.example.multiactivities.activities
 
 import android.os.Bundle
 import android.os.PersistableBundle
