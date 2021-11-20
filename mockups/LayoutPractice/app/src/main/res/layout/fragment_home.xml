@@ -10,18 +10,32 @@
         android:text="Home Fragment" />
 
     <android.widget.Button
-        android:layout_width="wrap_content"
+        android:id="@+id/outlined_button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
         android:background="@drawable/outlined_button"
         android:text="Outlined Button"
-        android:textColor="@color/theme_color" />
+        android:textColor="@color/theme_color"
+        android:textSize="20dp" />
 
     <android.widget.Button
-        android:layout_width="wrap_content"
+        android:id="@+id/filled_button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
         android:background="@drawable/filled_button"
         android:text="Filled Button"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:textSize="20dp" />
 
-
+    <TextView
+        android:id="@+id/text_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="TEXT BUTTON"
+        android:textColor="@color/theme_color"
+        android:textSize="18dp" />
 </LinearLayout>
