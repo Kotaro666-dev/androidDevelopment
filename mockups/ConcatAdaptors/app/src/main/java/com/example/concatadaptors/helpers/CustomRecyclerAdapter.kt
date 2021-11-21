@@ -1,9 +1,9 @@
-package com.example.concatadaptors
+package com.example.concatadaptors.helpers
 
-import RecyclerViewHolder
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.concatadaptors.R
 
 class CustomRecyclerAdapter(
     private val itemsList: List<String>

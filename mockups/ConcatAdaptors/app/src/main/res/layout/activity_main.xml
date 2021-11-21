@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <fragment
         android:id="@+id/attach_to_home_fragnent"
-        android:name="com.example.concatadaptors.HomeFragment"
+        android:name="com.example.concatadaptors.fragments.HomeFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

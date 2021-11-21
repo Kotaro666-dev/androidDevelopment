@@ -1,7 +1,8 @@
-package com.example.concatadaptors
+package com.example.concatadaptors.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.concatadaptors.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
