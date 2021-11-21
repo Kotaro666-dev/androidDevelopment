@@ -5,15 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".activities.ItemPageActivity">
 
-    <TextView
+    <fragment
+        android:id="@+id/attach_to_item_page"
+        android:name="com.example.concatadaptors.fragments.ItemPageFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="TEST" />
-
-    <!--    <fragment-->
-    <!--        android:id="@+id/attach_to_item_page"-->
-    <!--        android:name="com.example.concatadaptors.fragments.ItemPageFragment"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent" />-->
+        android:layout_height="match_parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
