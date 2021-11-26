@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.example.customdialog.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -18,11 +19,16 @@ class HomeFragment : Fragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(layoutInflater)
         val view = binding.root
-        binding.button.setOnClickListener { onClickButton(view) }
+        binding.button.setOnClickListener { onClickButton() }
         return view
     }
 
-    private fun onClickButton(view: View) {
-        Toast.makeText(view.context, "カスタムダイアログを開く", Toast.LENGTH_SHORT).show()
+    private fun onClickButton() {
+        displayCustomDialog()
+    }
+
+    private fun displayCustomDialog() {
+        val dialog = CustomDialogFragment()
+        dialog.show(childFragmentManager, "Custom Dialog")
     }
 }

@@ -3,7 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/fragment_custom_dialog.xml" value="0.5760416666666667" />
+        <entry key="app/src/main/res/drawable/constraint_layout_style.xml" value="0.2485" />
+        <entry key="app/src/main/res/layout/fragment_custom_dialog.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.30240631103515625" />
       </map>
     </option>
