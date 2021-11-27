@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.practiceviewmodelandlivedata.R
 import com.example.practiceviewmodelandlivedata.databinding.FragmentHomeBinding
@@ -36,7 +38,18 @@ class HomeFragment : Fragment() {
         // the LiveData will not be observed and updates to it will not be propagated to the UI.
         // 以下の処理を行わないと、LiveData が View に反映されない
         binding.lifecycleOwner = viewLifecycleOwner
+        viewModel.isMilestone.observe(viewLifecycleOwner, Observer { isMilestone ->
+            if (isMilestone) {
+                announceMileStone()
+            }
+        })
 
         return binding.root
+    }
+
+    private fun announceMileStone() {
+        Toast.makeText(activity, "You Reached to ${viewModel.score.value}", Toast.LENGTH_SHORT)
+            .show()
+        viewModel.resetMileStone()
     }
 }
