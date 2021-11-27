@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_sleep_tracker.xml",
+        "source": "/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/res/layout/fragment_sleep_tracker.xml"
+    },
+    {
+        "merged": "/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_sleep_quality.xml",
+        "source": "/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/res/layout/fragment_sleep_quality.xml"
+    }
+]

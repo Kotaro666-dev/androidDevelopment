@@ -1,0 +1,4 @@
+#Sat Nov 27 20:33:18 JST 2021
+base.0=/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/build/intermediates/dex/debug/mergeDexDebug/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
