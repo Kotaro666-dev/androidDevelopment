@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="0"
+            android:text="@{Integer.toString(homeViewModel.score)}"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -52,6 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#0000FF"
+                android:onClick="@{() -> homeViewModel.onTapMinus()}"
                 android:text="Minus"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
@@ -64,6 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#FF0000"
+                android:onClick="@{() -> homeViewModel.onTapPlus()}"
                 android:text="Plus"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
