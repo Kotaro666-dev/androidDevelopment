@@ -8,12 +8,12 @@
         "source": "/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/res/drawable/ic_sleep_5.xml"
     },
     {
-        "merged": "/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
-    },
-    {
         "merged": "/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/build/intermediates/res/merged/debug/layout_fragment_sleep_quality.xml.flat",
         "source": "/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/res/layout/fragment_sleep_quality.xml"
+    },
+    {
+        "merged": "/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
     },
     {
         "merged": "/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",

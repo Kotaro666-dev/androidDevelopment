@@ -14,7 +14,6 @@ public class FragmentSleepTrackerBindingImpl extends FragmentSleepTrackerBinding
     static {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.textview, 2);
         sViewsWithIds.put(R.id.stop_button, 3);
         sViewsWithIds.put(R.id.clear_button, 4);
     }
@@ -32,15 +31,16 @@ public class FragmentSleepTrackerBindingImpl extends FragmentSleepTrackerBinding
         this(bindingComponent, root, mapBindings(bindingComponent, root, 5, sIncludes, sViewsWithIds));
     }
     private FragmentSleepTrackerBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
-        super(bindingComponent, root, 0
+        super(bindingComponent, root, 1
             , (android.widget.Button) bindings[4]
-            , (android.widget.Button) bindings[1]
+            , (android.widget.Button) bindings[2]
             , (android.widget.Button) bindings[3]
-            , (android.widget.TextView) bindings[2]
+            , (android.widget.TextView) bindings[1]
             );
         this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
         this.mboundView0.setTag(null);
         this.startButton.setTag(null);
+        this.textview.setTag(null);
         setRootTag(root);
         // listeners
         mCallback1 = new com.example.android.trackmysleepquality.generated.callback.OnClickListener(this, 1);
@@ -50,7 +50,7 @@ public class FragmentSleepTrackerBindingImpl extends FragmentSleepTrackerBinding
     @Override
     public void invalidateAll() {
         synchronized(this) {
-                mDirtyFlags = 0x2L;
+                mDirtyFlags = 0x4L;
         }
         requestRebind();
     }
@@ -80,7 +80,7 @@ public class FragmentSleepTrackerBindingImpl extends FragmentSleepTrackerBinding
     public void setSleepTrackerViewModel(@Nullable com.example.android.trackmysleepquality.sleeptracker.SleepTrackerViewModel SleepTrackerViewModel) {
         this.mSleepTrackerViewModel = SleepTrackerViewModel;
         synchronized(this) {
-            mDirtyFlags |= 0x1L;
+            mDirtyFlags |= 0x2L;
         }
         notifyPropertyChanged(BR.sleepTrackerViewModel);
         super.requestRebind();
@@ -89,6 +89,17 @@ public class FragmentSleepTrackerBindingImpl extends FragmentSleepTrackerBinding
     @Override
     protected boolean onFieldChange(int localFieldId, Object object, int fieldId) {
         switch (localFieldId) {
+            case 0 :
+                return onChangeSleepTrackerViewModelNightsString((androidx.lifecycle.LiveData<android.text.Spanned>) object, fieldId);
+        }
+        return false;
+    }
+    private boolean onChangeSleepTrackerViewModelNightsString(androidx.lifecycle.LiveData<android.text.Spanned> SleepTrackerViewModelNightsString, int fieldId) {
+        if (fieldId == BR._all) {
+            synchronized(this) {
+                    mDirtyFlags |= 0x1L;
+            }
+            return true;
         }
         return false;
     }
@@ -100,12 +111,36 @@ public class FragmentSleepTrackerBindingImpl extends FragmentSleepTrackerBinding
             dirtyFlags = mDirtyFlags;
             mDirtyFlags = 0;
         }
+        android.text.Spanned sleepTrackerViewModelNightsStringGetValue = null;
+        androidx.lifecycle.LiveData<android.text.Spanned> sleepTrackerViewModelNightsString = null;
         com.example.android.trackmysleepquality.sleeptracker.SleepTrackerViewModel sleepTrackerViewModel = mSleepTrackerViewModel;
+
+        if ((dirtyFlags & 0x7L) != 0) {
+
+
+
+                if (sleepTrackerViewModel != null) {
+                    // read sleepTrackerViewModel.nightsString
+                    sleepTrackerViewModelNightsString = sleepTrackerViewModel.getNightsString();
+                }
+                updateLiveDataRegistration(0, sleepTrackerViewModelNightsString);
+
+
+                if (sleepTrackerViewModelNightsString != null) {
+                    // read sleepTrackerViewModel.nightsString.getValue()
+                    sleepTrackerViewModelNightsStringGetValue = sleepTrackerViewModelNightsString.getValue();
+                }
+        }
         // batch finished
-        if ((dirtyFlags & 0x2L) != 0) {
+        if ((dirtyFlags & 0x4L) != 0) {
             // api target 1
 
             this.startButton.setOnClickListener(mCallback1);
+        }
+        if ((dirtyFlags & 0x7L) != 0) {
+            // api target 1
+
+            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.textview, sleepTrackerViewModelNightsStringGetValue);
         }
     }
     // Listener Stub Implementations
@@ -129,8 +164,9 @@ public class FragmentSleepTrackerBindingImpl extends FragmentSleepTrackerBinding
     // dirty flag
     private  long mDirtyFlags = 0xffffffffffffffffL;
     /* flag mapping
-        flag 0 (0x1L): sleepTrackerViewModel
-        flag 1 (0x2L): null
+        flag 0 (0x1L): sleepTrackerViewModel.nightsString
+        flag 1 (0x2L): sleepTrackerViewModel
+        flag 2 (0x3L): null
     flag mapping end*/
     //end
 }
