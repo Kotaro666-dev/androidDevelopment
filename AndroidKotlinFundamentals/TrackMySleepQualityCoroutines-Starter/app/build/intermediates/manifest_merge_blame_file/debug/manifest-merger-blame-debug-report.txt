@@ -25,49 +25,50 @@
 17-->/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/AndroidManifest.xml:9:9-68
 18        android:supportsRtl="true"
 18-->/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/AndroidManifest.xml:10:9-35
-19        android:theme="@style/AppTheme" >
-19-->/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/AndroidManifest.xml:11:9-40
-20        <activity android:name="com.example.android.trackmysleepquality.MainActivity" >
-20-->/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/AndroidManifest.xml:12:9-18:20
-20-->/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/AndroidManifest.xml:12:19-47
-21            <intent-filter>
-21-->/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/AndroidManifest.xml:13:13-17:29
-22                <action android:name="android.intent.action.MAIN" />
-22-->/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/AndroidManifest.xml:14:17-69
-22-->/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/AndroidManifest.xml:14:25-66
-23
-24                <category android:name="android.intent.category.LAUNCHER" />
-24-->/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/AndroidManifest.xml:16:17-77
-24-->/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/AndroidManifest.xml:16:27-74
-25            </intent-filter>
-26        </activity>
-27
-28        <meta-data
-28-->/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/AndroidManifest.xml:19:9-21:57
-29            android:name="preloaded_fonts"
-29-->/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/AndroidManifest.xml:20:13-43
-30            android:resource="@array/preloaded_fonts" />
-30-->/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/AndroidManifest.xml:21:13-54
-31
-32        <service
-32-->[androidx.room:room-runtime:2.2.5] /Users/Kotaro/.gradle/caches/transforms-2/files-2.1/c0bfdd0eea52eba8bea9c9f4e99b30a2/room-runtime-2.2.5/AndroidManifest.xml:25:9-28:40
-33            android:name="androidx.room.MultiInstanceInvalidationService"
-33-->[androidx.room:room-runtime:2.2.5] /Users/Kotaro/.gradle/caches/transforms-2/files-2.1/c0bfdd0eea52eba8bea9c9f4e99b30a2/room-runtime-2.2.5/AndroidManifest.xml:26:13-74
-34            android:directBootAware="true"
-34-->[androidx.room:room-runtime:2.2.5] /Users/Kotaro/.gradle/caches/transforms-2/files-2.1/c0bfdd0eea52eba8bea9c9f4e99b30a2/room-runtime-2.2.5/AndroidManifest.xml:27:13-43
-35            android:exported="false" />
-35-->[androidx.room:room-runtime:2.2.5] /Users/Kotaro/.gradle/caches/transforms-2/files-2.1/c0bfdd0eea52eba8bea9c9f4e99b30a2/room-runtime-2.2.5/AndroidManifest.xml:28:13-37
-36
-37        <provider
-37-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/Kotaro/.gradle/caches/transforms-2/files-2.1/2d26a096da34d968587145eaa2bf203b/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
-38            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-38-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/Kotaro/.gradle/caches/transforms-2/files-2.1/2d26a096da34d968587145eaa2bf203b/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:26:13-79
-39            android:authorities="com.example.android.trackmysleepquality.lifecycle-process"
-39-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/Kotaro/.gradle/caches/transforms-2/files-2.1/2d26a096da34d968587145eaa2bf203b/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:27:13-69
-40            android:exported="false"
-40-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/Kotaro/.gradle/caches/transforms-2/files-2.1/2d26a096da34d968587145eaa2bf203b/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:28:13-37
-41            android:multiprocess="true" />
-41-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/Kotaro/.gradle/caches/transforms-2/files-2.1/2d26a096da34d968587145eaa2bf203b/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:29:13-40
-42    </application>
-43
-44</manifest>
+19        android:testOnly="true"
+20        android:theme="@style/AppTheme" >
+20-->/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/AndroidManifest.xml:11:9-40
+21        <activity android:name="com.example.android.trackmysleepquality.MainActivity" >
+21-->/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/AndroidManifest.xml:12:9-18:20
+21-->/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/AndroidManifest.xml:12:19-47
+22            <intent-filter>
+22-->/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/AndroidManifest.xml:13:13-17:29
+23                <action android:name="android.intent.action.MAIN" />
+23-->/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/AndroidManifest.xml:14:17-69
+23-->/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/AndroidManifest.xml:14:25-66
+24
+25                <category android:name="android.intent.category.LAUNCHER" />
+25-->/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/AndroidManifest.xml:16:17-77
+25-->/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/AndroidManifest.xml:16:27-74
+26            </intent-filter>
+27        </activity>
+28
+29        <meta-data
+29-->/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/AndroidManifest.xml:19:9-21:57
+30            android:name="preloaded_fonts"
+30-->/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/AndroidManifest.xml:20:13-43
+31            android:resource="@array/preloaded_fonts" />
+31-->/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/TrackMySleepQualityCoroutines-Starter/app/src/main/AndroidManifest.xml:21:13-54
+32
+33        <service
+33-->[androidx.room:room-runtime:2.2.5] /Users/Kotaro/.gradle/caches/transforms-2/files-2.1/c0bfdd0eea52eba8bea9c9f4e99b30a2/room-runtime-2.2.5/AndroidManifest.xml:25:9-28:40
+34            android:name="androidx.room.MultiInstanceInvalidationService"
+34-->[androidx.room:room-runtime:2.2.5] /Users/Kotaro/.gradle/caches/transforms-2/files-2.1/c0bfdd0eea52eba8bea9c9f4e99b30a2/room-runtime-2.2.5/AndroidManifest.xml:26:13-74
+35            android:directBootAware="true"
+35-->[androidx.room:room-runtime:2.2.5] /Users/Kotaro/.gradle/caches/transforms-2/files-2.1/c0bfdd0eea52eba8bea9c9f4e99b30a2/room-runtime-2.2.5/AndroidManifest.xml:27:13-43
+36            android:exported="false" />
+36-->[androidx.room:room-runtime:2.2.5] /Users/Kotaro/.gradle/caches/transforms-2/files-2.1/c0bfdd0eea52eba8bea9c9f4e99b30a2/room-runtime-2.2.5/AndroidManifest.xml:28:13-37
+37
+38        <provider
+38-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/Kotaro/.gradle/caches/transforms-2/files-2.1/2d26a096da34d968587145eaa2bf203b/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
+39            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+39-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/Kotaro/.gradle/caches/transforms-2/files-2.1/2d26a096da34d968587145eaa2bf203b/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:26:13-79
+40            android:authorities="com.example.android.trackmysleepquality.lifecycle-process"
+40-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/Kotaro/.gradle/caches/transforms-2/files-2.1/2d26a096da34d968587145eaa2bf203b/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:27:13-69
+41            android:exported="false"
+41-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/Kotaro/.gradle/caches/transforms-2/files-2.1/2d26a096da34d968587145eaa2bf203b/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:28:13-37
+42            android:multiprocess="true" />
+42-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/Kotaro/.gradle/caches/transforms-2/files-2.1/2d26a096da34d968587145eaa2bf203b/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:29:13-40
+43    </application>
+44
+45</manifest>

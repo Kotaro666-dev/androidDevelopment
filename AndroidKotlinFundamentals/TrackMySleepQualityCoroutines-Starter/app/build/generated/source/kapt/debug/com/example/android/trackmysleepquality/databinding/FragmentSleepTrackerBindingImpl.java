@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import android.view.View;
 @SuppressWarnings("unchecked")
-public class FragmentSleepTrackerBindingImpl extends FragmentSleepTrackerBinding  {
+public class FragmentSleepTrackerBindingImpl extends FragmentSleepTrackerBinding implements com.example.android.trackmysleepquality.generated.callback.OnClickListener.Listener {
 
     @Nullable
     private static final androidx.databinding.ViewDataBinding.IncludedLayouts sIncludes;
@@ -14,8 +14,7 @@ public class FragmentSleepTrackerBindingImpl extends FragmentSleepTrackerBinding
     static {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.textview, 1);
-        sViewsWithIds.put(R.id.start_button, 2);
+        sViewsWithIds.put(R.id.textview, 2);
         sViewsWithIds.put(R.id.stop_button, 3);
         sViewsWithIds.put(R.id.clear_button, 4);
     }
@@ -23,6 +22,8 @@ public class FragmentSleepTrackerBindingImpl extends FragmentSleepTrackerBinding
     @NonNull
     private final androidx.constraintlayout.widget.ConstraintLayout mboundView0;
     // variables
+    @Nullable
+    private final android.view.View.OnClickListener mCallback1;
     // values
     // listeners
     // Inverse Binding Event Handlers
@@ -33,14 +34,16 @@ public class FragmentSleepTrackerBindingImpl extends FragmentSleepTrackerBinding
     private FragmentSleepTrackerBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
             , (android.widget.Button) bindings[4]
-            , (android.widget.Button) bindings[2]
+            , (android.widget.Button) bindings[1]
             , (android.widget.Button) bindings[3]
-            , (android.widget.TextView) bindings[1]
+            , (android.widget.TextView) bindings[2]
             );
         this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
         this.mboundView0.setTag(null);
+        this.startButton.setTag(null);
         setRootTag(root);
         // listeners
+        mCallback1 = new com.example.android.trackmysleepquality.generated.callback.OnClickListener(this, 1);
         invalidateAll();
     }
 
@@ -76,6 +79,11 @@ public class FragmentSleepTrackerBindingImpl extends FragmentSleepTrackerBinding
 
     public void setSleepTrackerViewModel(@Nullable com.example.android.trackmysleepquality.sleeptracker.SleepTrackerViewModel SleepTrackerViewModel) {
         this.mSleepTrackerViewModel = SleepTrackerViewModel;
+        synchronized(this) {
+            mDirtyFlags |= 0x1L;
+        }
+        notifyPropertyChanged(BR.sleepTrackerViewModel);
+        super.requestRebind();
     }
 
     @Override
@@ -92,10 +100,32 @@ public class FragmentSleepTrackerBindingImpl extends FragmentSleepTrackerBinding
             dirtyFlags = mDirtyFlags;
             mDirtyFlags = 0;
         }
+        com.example.android.trackmysleepquality.sleeptracker.SleepTrackerViewModel sleepTrackerViewModel = mSleepTrackerViewModel;
         // batch finished
+        if ((dirtyFlags & 0x2L) != 0) {
+            // api target 1
+
+            this.startButton.setOnClickListener(mCallback1);
+        }
     }
     // Listener Stub Implementations
     // callback impls
+    public final void _internalCallbackOnClick(int sourceId , android.view.View callbackArg_0) {
+        // localize variables for thread safety
+        // sleepTrackerViewModel != null
+        boolean sleepTrackerViewModelJavaLangObjectNull = false;
+        // sleepTrackerViewModel
+        com.example.android.trackmysleepquality.sleeptracker.SleepTrackerViewModel sleepTrackerViewModel = mSleepTrackerViewModel;
+
+
+
+        sleepTrackerViewModelJavaLangObjectNull = (sleepTrackerViewModel) != (null);
+        if (sleepTrackerViewModelJavaLangObjectNull) {
+
+
+            sleepTrackerViewModel.onStartTracking();
+        }
+    }
     // dirty flag
     private  long mDirtyFlags = 0xffffffffffffffffL;
     /* flag mapping
