@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/Repository/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_dev_byte.xml",
+        "source": "/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/Repository/app/src/main/res/layout/fragment_dev_byte.xml"
+    },
+    {
+        "merged": "/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/Repository/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/devbyte_item.xml",
+        "source": "/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/Repository/app/src/main/res/layout/devbyte_item.xml"
+    }
+]
