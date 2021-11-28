@@ -1,4 +1,4 @@
-#Sun Nov 28 10:04:23 JST 2021
+#Sun Nov 28 10:46:34 JST 2021
 base.2=/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/Repository/app/build/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
 path.2=classes2.dex
 base.1=/Users/Kotaro/androidDevelopment/AndroidKotlinFundamentals/Repository/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex
