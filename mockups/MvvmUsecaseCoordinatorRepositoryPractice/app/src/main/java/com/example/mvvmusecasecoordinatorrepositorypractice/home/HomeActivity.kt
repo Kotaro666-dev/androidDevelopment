@@ -29,6 +29,10 @@ class HomeActivity : AppCompatActivity() {
             viewModel.goToAddTodoScreen(this)
         }
 
+        binding.buttonClear.setOnClickListener {
+            viewModel.clearTodoList()
+        }
+
         // RecyclerViewの取得
         val recyclerView = binding.recyclerView
 

@@ -17,4 +17,10 @@ class Repository(private val database: AppDatabase) {
             database.todoDatabaseDao().insert(todo)
         }
     }
+
+    suspend fun clearTodoList() {
+        withContext(Dispatchers.IO) {
+            database.todoDatabaseDao().clear()
+        }
+    }
 }

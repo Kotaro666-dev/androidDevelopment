@@ -10,4 +10,8 @@ class HomeUseCase(
     fun getTodoList(): LiveData<List<TodoDataClass>> {
         return repository.getTodoList()
     }
+
+    suspend fun clearTodoList() {
+        repository.clearTodoList()
+    }
 }
