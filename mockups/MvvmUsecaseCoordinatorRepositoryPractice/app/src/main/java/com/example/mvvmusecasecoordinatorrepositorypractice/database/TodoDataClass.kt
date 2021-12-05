@@ -12,6 +12,9 @@ data class TodoDataClass(
     @ColumnInfo(name = "title")
     var title: String = "",
 
+    @ColumnInfo(name = "description")
+    var description: String = "",
+
     @ColumnInfo(name = "is_done")
-    var isDone: Boolean = false
+    var isDone: Boolean = false,
 )
