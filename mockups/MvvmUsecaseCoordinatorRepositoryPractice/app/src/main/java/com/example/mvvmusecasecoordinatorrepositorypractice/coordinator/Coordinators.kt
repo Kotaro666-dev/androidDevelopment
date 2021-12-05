@@ -1,4 +1,4 @@
-package com.example.mvvmusecasecoordinatorrepositorypractice
+package com.example.mvvmusecasecoordinatorrepositorypractice.coordinator
 
 import com.example.mvvmusecasecoordinatorrepositorypractice.addTodo.AddTodoCoordinator
 import com.example.mvvmusecasecoordinatorrepositorypractice.home.HomeCoordinator

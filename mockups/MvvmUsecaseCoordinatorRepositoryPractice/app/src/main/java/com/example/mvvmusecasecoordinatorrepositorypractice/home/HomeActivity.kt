@@ -20,5 +20,9 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
+
+        binding.buttonGoToAddTodo.setOnClickListener {
+            viewModel.goToAddTodoScreen(this)
+        }
     }
 }
