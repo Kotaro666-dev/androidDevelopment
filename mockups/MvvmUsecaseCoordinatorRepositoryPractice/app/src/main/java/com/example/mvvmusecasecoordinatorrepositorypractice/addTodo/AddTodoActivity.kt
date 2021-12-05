@@ -21,5 +21,17 @@ class AddTodoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
+        setBackButtonOnActionBar()
+    }
+
+    private fun setBackButtonOnActionBar() {
+        val actionbar = supportActionBar
+        actionbar!!.title = "Add Todo"
+        actionbar.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }
