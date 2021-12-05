@@ -1,7 +1,7 @@
 package com.example.mvvmusecasecoordinatorrepositorypractice
 
-import com.example.mvvmusecasecoordinatorrepositorypractice.database.TodoDatabase
+import com.example.mvvmusecasecoordinatorrepositorypractice.database.AppDatabase
 
-class Repository(val todoDatabase: TodoDatabase) {
+class Repository(val todoDatabase: AppDatabase) {
 
 }

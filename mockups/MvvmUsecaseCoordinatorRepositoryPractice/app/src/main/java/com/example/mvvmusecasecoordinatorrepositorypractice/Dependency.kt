@@ -2,7 +2,7 @@ package com.example.mvvmusecasecoordinatorrepositorypractice
 
 import com.example.mvvmusecasecoordinatorrepositorypractice.addTodo.AddTodoCoordinator
 import com.example.mvvmusecasecoordinatorrepositorypractice.coordinator.Coordinators
-import com.example.mvvmusecasecoordinatorrepositorypractice.database.TodoDatabase
+import com.example.mvvmusecasecoordinatorrepositorypractice.database.AppDatabase
 import com.example.mvvmusecasecoordinatorrepositorypractice.home.HomeCoordinator
 
 class Dependency(application: CustomApplication) {
@@ -18,6 +18,6 @@ class Dependency(application: CustomApplication) {
         override val ADD_TODO = AddTodoCoordinator()
     }
 
-    private val todoDatabase = TodoDatabase.getInstance(application)
+    private val todoDatabase = AppDatabase.getInstance(application)
     val repository = Repository(todoDatabase)
 }

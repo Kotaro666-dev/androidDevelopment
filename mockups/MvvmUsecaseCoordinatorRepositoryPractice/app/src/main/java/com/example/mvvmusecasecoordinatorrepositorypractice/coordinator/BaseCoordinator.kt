@@ -2,6 +2,6 @@ package com.example.mvvmusecasecoordinatorrepositorypractice.coordinator
 
 import android.content.Context
 
-interface BasicCoordinator {
+interface BaseCoordinator {
     fun start(context: Context)
 }

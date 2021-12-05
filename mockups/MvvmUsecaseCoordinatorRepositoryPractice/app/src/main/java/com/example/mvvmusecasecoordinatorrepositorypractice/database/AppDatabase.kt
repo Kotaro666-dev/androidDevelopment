@@ -6,21 +6,21 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database(entities = [TodoDataClass::class], version = 2, exportSchema = false)
-abstract class TodoDatabase : RoomDatabase() {
+abstract class AppDatabase : RoomDatabase() {
     abstract fun todoDatabaseDao(): TodoDatabaseDao
 
     companion object {
         @Volatile
-        private var INSTANCE: TodoDatabase? = null
+        private var INSTANCE: AppDatabase? = null
 
-        fun getInstance(context: Context): TodoDatabase {
+        fun getInstance(context: Context): AppDatabase {
             synchronized(this) {
                 var instance = INSTANCE
 
                 if (instance == null) {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
-                        TodoDatabase::class.java,
+                        AppDatabase::class.java,
                         "todo_database"
                     )
                         .fallbackToDestructiveMigration()
