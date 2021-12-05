@@ -1,8 +1,10 @@
-package com.example.mvvmusecasecoordinatorrepositorypractice
+package com.example.mvvmusecasecoordinatorrepositorypractice.room
 
 import androidx.lifecycle.LiveData
 import com.example.mvvmusecasecoordinatorrepositorypractice.database.AppDatabase
 import com.example.mvvmusecasecoordinatorrepositorypractice.database.TodoDataClass
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 
 class Repository(private val database: AppDatabase) {
@@ -10,7 +12,9 @@ class Repository(private val database: AppDatabase) {
         return database.todoDatabaseDao().getAllTodos()
     }
 
-    fun addTodo(todo: TodoDataClass) {
-        database.todoDatabaseDao().insert(todo)
+    suspend fun addTodo(todo: TodoDataClass) {
+        withContext(Dispatchers.IO) {
+            database.todoDatabaseDao().insert(todo)
+        }
     }
 }

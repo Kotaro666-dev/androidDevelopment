@@ -8,8 +8,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mvvmusecasecoordinatorrepositorypractice.R
 import com.example.mvvmusecasecoordinatorrepositorypractice.database.TodoDataClass
 
-class CustomAdapter(private val dataSet: List<TodoDataClass>) :
+class CustomAdapter :
     RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+
+    private var todoList = mutableListOf<TodoDataClass>()
+
+    fun setTodoList(todoList: List<TodoDataClass>) {
+        this.todoList = todoList.toMutableList()
+        notifyDataSetChanged()
+    }
 
     /**
      * Provide a reference to the type of views that you are using
@@ -33,10 +40,21 @@ class CustomAdapter(private val dataSet: List<TodoDataClass>) :
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        viewHolder.textView.text = dataSet[position].title
+        if (todoList.isEmpty()) {
+            viewHolder.textView.text =
+                "現在のTodoリストは空です。"
+        } else {
+            viewHolder.textView.text = todoList[position].title
+        }
     }
 
     // Return the size of your dataset (invoked by the layout manager)
-    override fun getItemCount() = dataSet.size
+    override fun getItemCount(): Int {
+        return if (todoList.isEmpty()) {
+            0
+        } else {
+            todoList.size
+        }
+    }
 
 }

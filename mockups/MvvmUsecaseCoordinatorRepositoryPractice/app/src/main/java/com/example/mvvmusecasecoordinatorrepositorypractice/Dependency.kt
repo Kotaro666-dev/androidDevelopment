@@ -4,6 +4,7 @@ import com.example.mvvmusecasecoordinatorrepositorypractice.addTodo.AddTodoCoord
 import com.example.mvvmusecasecoordinatorrepositorypractice.coordinator.Coordinators
 import com.example.mvvmusecasecoordinatorrepositorypractice.database.AppDatabase
 import com.example.mvvmusecasecoordinatorrepositorypractice.home.HomeCoordinator
+import com.example.mvvmusecasecoordinatorrepositorypractice.room.Repository
 
 class Dependency(application: CustomApplication) {
 

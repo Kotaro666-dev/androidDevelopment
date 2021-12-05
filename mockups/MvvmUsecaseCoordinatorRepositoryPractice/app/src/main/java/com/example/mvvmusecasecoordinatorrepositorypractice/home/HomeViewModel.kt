@@ -1,7 +1,9 @@
 package com.example.mvvmusecasecoordinatorrepositorypractice.home
 
 import android.content.Context
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import com.example.mvvmusecasecoordinatorrepositorypractice.database.TodoDataClass
 
 
 class HomeViewModel(
@@ -9,8 +11,10 @@ class HomeViewModel(
     useCase: HomeUseCase,
 ) : ViewModel() {
 
-    private val todoList = useCase.getTodoList()
-    
+    private val _todoList = useCase.getTodoList()
+    val todoList: LiveData<List<TodoDataClass>>
+        get() = _todoList
+
     fun goToAddTodoScreen(context: Context) {
         coordinator.start(context)
     }

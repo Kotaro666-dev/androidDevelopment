@@ -1,8 +1,8 @@
 package com.example.mvvmusecasecoordinatorrepositorypractice.home
 
 import androidx.lifecycle.LiveData
-import com.example.mvvmusecasecoordinatorrepositorypractice.Repository
 import com.example.mvvmusecasecoordinatorrepositorypractice.database.TodoDataClass
+import com.example.mvvmusecasecoordinatorrepositorypractice.room.Repository
 
 class HomeUseCase(
     private val repository: Repository
