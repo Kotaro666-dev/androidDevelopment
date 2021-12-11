@@ -1,39 +1,41 @@
 package com.example.httpgetpractice.repository
 
-import okhttp3.*
-import okio.IOException
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import org.json.JSONObject
 
 
 class Repository {
 
     companion object {
-        private const val LOCALHOST_IP_ADDRESS = "10.18.126.135"
+        private const val LOCALHOST_IP_ADDRESS = "192.168.11.10"
         const val URL = "http://$LOCALHOST_IP_ADDRESS:8080"
     }
 
     private val client = OkHttpClient()
+    private var result: JSONObject? = null
 
-    fun fetchCustomerInfo() {
+    fun get(url: String): JSONObject {
         val request = Request.Builder()
-            .url(URL)
+            .url(url)
             .build()
+        val response = client.newCall(request).execute()
+        return JSONObject(response.body?.string().orEmpty())
+    }
 
-        client.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
+    suspend fun fetchCustomerInfo() {
+        withContext(Dispatchers.IO) {
+            try {
+                result = get(URL)
+            } catch (e: Exception) {
                 e.printStackTrace()
             }
-
-            override fun onResponse(call: Call, response: Response) {
-                response.use {
-                    if (!response.isSuccessful) throw IOException("Unexpected code $response")
-
-                    println(response.body!!.string())
-                }
-            }
-        })
+        }
     }
 
     fun insert() {
-
+        println(result)
     }
 }

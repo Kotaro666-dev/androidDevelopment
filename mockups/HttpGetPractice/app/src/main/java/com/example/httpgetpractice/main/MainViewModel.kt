@@ -1,6 +1,8 @@
 package com.example.httpgetpractice.main
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 
 class MainViewModel(
     private val coordinator: MainCoordinator,
@@ -8,6 +10,8 @@ class MainViewModel(
 ) : ViewModel() {
 
     fun getCustomerInfo() {
-        useCase.getCustomerInfo()
+        viewModelScope.launch {
+            useCase.getCustomerInfo()
+        }
     }
 }
