@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.httpgetpractice.R
 import com.example.httpgetpractice.databinding.ActivityMainBinding
 import com.example.httpgetpractice.repository.Repository
+import com.example.httpgetpractice.room.CustomerDatabase
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val viewModelFactory = MainViewModelFactory(
             MainCoordinator(),
-            MainUseCase(Repository())
+            MainUseCase(Repository(CustomerDatabase.getInstance(this)))
         )
         viewModel = ViewModelProvider(this, viewModelFactory)[MainViewModel::class.java]
         binding.viewModel = viewModel

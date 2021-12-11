@@ -1,5 +1,6 @@
 package com.example.httpgetpractice.repository
 
+import com.example.httpgetpractice.room.CustomerDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
@@ -7,7 +8,9 @@ import okhttp3.Request
 import org.json.JSONObject
 
 
-class Repository {
+class Repository(
+    private val customerDatabase: CustomerDatabase
+) {
 
     companion object {
         private const val LOCALHOST_IP_ADDRESS = "192.168.11.10"
