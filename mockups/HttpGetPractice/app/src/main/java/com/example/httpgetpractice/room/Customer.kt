@@ -13,7 +13,7 @@ data class Customer(
     var name: String = "",
 
     @ColumnInfo(name = "account_number")
-    var accountNumber: Int = 0,
+    var accountNumber: String = "",
 
     @ColumnInfo(name = "is_logged_in")
     var isLoggedIn: Boolean = false,

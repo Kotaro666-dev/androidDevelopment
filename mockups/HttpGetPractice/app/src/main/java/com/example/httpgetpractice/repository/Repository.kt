@@ -1,11 +1,13 @@
 package com.example.httpgetpractice.repository
 
+import com.example.httpgetpractice.model.CustomerInfo
+import com.example.httpgetpractice.room.Customer
 import com.example.httpgetpractice.room.CustomerDatabase
+import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.Request
-import org.json.JSONObject
 
 
 class Repository(
@@ -18,14 +20,15 @@ class Repository(
     }
 
     private val client = OkHttpClient()
-    private var result: JSONObject? = null
+    private var result: String = ""
+    private val gson = Gson()
 
-    fun get(url: String): JSONObject {
+    fun get(url: String): String {
         val request = Request.Builder()
             .url(url)
             .build()
         val response = client.newCall(request).execute()
-        return JSONObject(response.body?.string().orEmpty())
+        return response.body?.string().orEmpty()
     }
 
     suspend fun fetchCustomerInfo() {
@@ -38,7 +41,17 @@ class Repository(
         }
     }
 
-    fun insert() {
-        println(result)
+    suspend fun insert() {
+        val customerInfo = gson.fromJson(result, CustomerInfo::class.java)
+        val customer = Customer(
+            id = customerInfo.id,
+            name = customerInfo.name,
+            accountNumber = customerInfo.accountNumber,
+            isLoggedIn = customerInfo.isLoggedIn,
+            depositNumber = customerInfo.depositNumber
+        )
+        withContext(Dispatchers.IO) {
+            customerDatabase.customerDatabaseDao.insert(customer)
+        }
     }
 }

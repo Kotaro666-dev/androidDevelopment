@@ -14,6 +14,7 @@ abstract class CustomerDatabase : RoomDatabase() {
 
         @Volatile
         private var INSTANCE: CustomerDatabase? = null
+        private const val DATABASE_NAME = "customer_database"
 
         fun getInstance(context: Context): CustomerDatabase {
             synchronized(this) {
@@ -23,7 +24,7 @@ abstract class CustomerDatabase : RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         CustomerDatabase::class.java,
-                        "sleep_history_database"
+                        DATABASE_NAME
                     )
                         .fallbackToDestructiveMigration()
                         .build()
