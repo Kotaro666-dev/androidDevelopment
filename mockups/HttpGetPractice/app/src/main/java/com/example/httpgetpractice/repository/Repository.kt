@@ -54,4 +54,21 @@ class Repository(
             customerDatabase.customerDatabaseDao.insert(customer)
         }
     }
+
+    suspend fun get(): CustomerInfo? {
+        var customer: Customer?
+        withContext(Dispatchers.IO) {
+            customer = customerDatabase.customerDatabaseDao.get()
+        }
+        if (customer == null) {
+            return null
+        }
+        return CustomerInfo(
+            id = customer!!.id,
+            name = customer!!.name,
+            accountNumber = customer!!.accountNumber,
+            isLoggedIn = customer!!.isLoggedIn,
+            depositNumber = customer!!.depositNumber
+        )
+    }
 }

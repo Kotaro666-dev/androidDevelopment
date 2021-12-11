@@ -27,8 +27,12 @@ class MainActivity : AppCompatActivity() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
 
-        binding.buttonGetCustomerInfo.setOnClickListener {
-            viewModel.getCustomerInfo()
+        binding.buttonFetch.setOnClickListener {
+            viewModel.fetchCustomerInfo()
+        }
+
+        binding.buttonDisplay.setOnClickListener {
+            viewModel.displayCustomerInfo()
         }
     }
 }
