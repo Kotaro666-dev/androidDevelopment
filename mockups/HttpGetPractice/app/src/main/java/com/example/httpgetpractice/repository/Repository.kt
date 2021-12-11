@@ -48,7 +48,7 @@ class Repository(
             name = customerInfo.name,
             accountNumber = customerInfo.accountNumber,
             isLoggedIn = customerInfo.isLoggedIn,
-            depositNumber = customerInfo.depositNumber
+            depositAmount = customerInfo.depositAmount
         )
         withContext(Dispatchers.IO) {
             customerDatabase.customerDatabaseDao.insert(customer)
@@ -68,7 +68,7 @@ class Repository(
             name = customer!!.name,
             accountNumber = customer!!.accountNumber,
             isLoggedIn = customer!!.isLoggedIn,
-            depositNumber = customer!!.depositNumber
+            depositAmount = customer!!.depositAmount
         )
     }
 }

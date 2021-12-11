@@ -50,6 +50,6 @@ class MainViewModel(
         _name.value = customerInfo.name
         _accountNumber.value = customerInfo.accountNumber
         _loginStatus.value = getLoginStatus(customerInfo.isLoggedIn)
-        _depositAmount.value = customerInfo.depositNumber.toString()
+        _depositAmount.value = customerInfo.depositAmount.toString() + '円'
     }
 }

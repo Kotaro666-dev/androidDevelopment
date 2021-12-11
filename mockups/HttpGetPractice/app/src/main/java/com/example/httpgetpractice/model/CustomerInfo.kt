@@ -5,5 +5,5 @@ data class CustomerInfo(
     val name: String,
     val accountNumber: String,
     val isLoggedIn: Boolean,
-    val depositNumber: Int,
+    val depositAmount: Int,
 )

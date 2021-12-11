@@ -18,6 +18,6 @@ data class Customer(
     @ColumnInfo(name = "is_logged_in")
     var isLoggedIn: Boolean = false,
 
-    @ColumnInfo(name = "deposit_number")
-    var depositNumber: Int = 0
+    @ColumnInfo(name = "deposit_amount")
+    var depositAmount: Int = 0
 )
