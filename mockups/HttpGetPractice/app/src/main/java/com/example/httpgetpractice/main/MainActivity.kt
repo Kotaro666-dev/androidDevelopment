@@ -25,5 +25,9 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this, viewModelFactory)[MainViewModel::class.java]
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
+
+        binding.buttonGetCustomerInfo.setOnClickListener {
+            viewModel.getCustomerInfo()
+        }
     }
 }
