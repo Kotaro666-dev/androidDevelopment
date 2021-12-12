@@ -15,8 +15,8 @@ class Repository(
     private val customerDatabase: CustomerDatabase
 ) {
     private val client = OkHttpClient()
-    private var result: String = ""
     private val gson = Gson()
+    private var result: String = ""
 
     fun get(url: String): String {
         val request = Request.Builder()

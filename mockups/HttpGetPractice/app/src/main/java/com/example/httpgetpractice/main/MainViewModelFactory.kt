@@ -11,5 +11,4 @@ class MainViewModelFactory(
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return MainViewModel(coordinator, useCase) as T
     }
-
 }
