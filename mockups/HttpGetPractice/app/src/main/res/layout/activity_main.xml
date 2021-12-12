@@ -43,6 +43,7 @@
             app:layout_constraintTop_toBottomOf="@+id/button_fetch" />
 
         <LinearLayout
+            android:id="@+id/customer_info_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
@@ -118,6 +119,18 @@
                 android:text="@{viewModel.depositAmount}"
                 android:textSize="22sp" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/button_go_to_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:paddingHorizontal="30dp"
+            android:text="メニュー画面へ進む"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/customer_info_list" />
 
     </LinearLayout>
 </layout>

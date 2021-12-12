@@ -34,5 +34,9 @@ class MainActivity : AppCompatActivity() {
         binding.buttonDisplay.setOnClickListener {
             viewModel.displayCustomerInfo()
         }
+
+        binding.buttonGoToMenu.setOnClickListener {
+            viewModel.goToMenu(this)
+        }
     }
 }

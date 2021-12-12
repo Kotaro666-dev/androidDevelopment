@@ -1,5 +1,6 @@
 package com.example.httpgetpractice.main
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -36,6 +37,10 @@ class MainViewModel(
                 updateLiveData(customerInfo)
             }
         }
+    }
+
+    fun goToMenu(context: Context) {
+        coordinator.start(context)
     }
 
     private fun getLoginStatus(isLoggedIn: Boolean): String {
