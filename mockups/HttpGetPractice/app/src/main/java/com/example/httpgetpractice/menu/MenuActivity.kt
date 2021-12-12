@@ -29,6 +29,7 @@ class MenuActivity : AppCompatActivity() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        viewModel.fetchMenuData()
     }
 
     override fun onSupportNavigateUp(): Boolean {

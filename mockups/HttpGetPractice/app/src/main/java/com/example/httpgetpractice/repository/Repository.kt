@@ -1,7 +1,9 @@
 package com.example.httpgetpractice.repository
 
 import com.example.httpgetpractice.const.Constants
+import com.example.httpgetpractice.menu.MenuPageXmlParser
 import com.example.httpgetpractice.model.CustomerInfo
+import com.example.httpgetpractice.model.Menu
 import com.example.httpgetpractice.room.Customer
 import com.example.httpgetpractice.room.CustomerDatabase
 import com.google.gson.Gson
@@ -48,6 +50,19 @@ class Repository(
         withContext(Dispatchers.IO) {
             customerDatabase.customerDatabaseDao.insert(customer)
         }
+    }
+
+    suspend fun fetchMenuData(): MutableList<Menu> {
+        var response = ""
+        withContext(Dispatchers.IO) {
+            try {
+                response = get("${Constants.URL}/xml")
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+        val parser = MenuPageXmlParser()
+        return parser.parseXml(response)
     }
 
     suspend fun get(): CustomerInfo? {
