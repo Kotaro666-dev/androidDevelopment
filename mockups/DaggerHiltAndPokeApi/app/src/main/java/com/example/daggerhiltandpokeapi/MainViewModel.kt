@@ -21,7 +21,6 @@ class MainViewModel @Inject constructor(
     private fun getPokemonList() {
         viewModelScope.launch {
             _pokemonList.value = useCase.getPokemonList()
-            println(_pokemonList.value)
         }
     }
 

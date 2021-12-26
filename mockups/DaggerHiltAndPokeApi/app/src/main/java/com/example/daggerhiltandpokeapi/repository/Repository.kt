@@ -18,6 +18,7 @@ class Repository @Inject constructor(
 
     companion object {
         private const val BASE_URL = "https://pokeapi.co"
+        private const val NUMBER_OF_POKEMON = 100
     }
 
     private val pokemonList = mutableListOf<Pokemon>()
@@ -30,7 +31,7 @@ class Repository @Inject constructor(
             .create(Service::class.java)
 
         withContext(Dispatchers.IO) {
-            for (index in 1..10) {
+            for (index in 1..NUMBER_OF_POKEMON) {
                 val response = service.getPokemon(index.toString())
                 if (response.isSuccessful) {
                     parsePokemon(response.body())
@@ -47,8 +48,8 @@ class Repository @Inject constructor(
         }
     }
 
-    suspend fun getAll(): List<Pokemon>? {
-        var pokemonList: List<Pokemon>?
+    suspend fun getAll(): List<Pokemon> {
+        var pokemonList: List<Pokemon>
         withContext(Dispatchers.IO) {
             pokemonList = database.pokemonDatabase.getAll()
         }
