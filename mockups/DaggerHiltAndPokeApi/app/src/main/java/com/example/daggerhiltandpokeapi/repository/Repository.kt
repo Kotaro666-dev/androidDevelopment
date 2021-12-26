@@ -47,6 +47,14 @@ class Repository @Inject constructor(
         }
     }
 
+    suspend fun getAll(): List<Pokemon>? {
+        var pokemonList: List<Pokemon>?
+        withContext(Dispatchers.IO) {
+            pokemonList = database.pokemonDatabase.getAll()
+        }
+        return pokemonList
+    }
+
     private fun parsePokemon(pokemonApiModel: PokeApiModel?) {
         if (pokemonApiModel != null) {
             val pokemon = Pokemon(
