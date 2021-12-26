@@ -9,8 +9,5 @@ import javax.inject.Inject
 @Module
 class PokemonStore @Inject constructor() {
 
-    private val _test = "test"
-    val test: String
-        get() = _test
 
 }
