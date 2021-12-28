@@ -6,6 +6,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -32,9 +33,13 @@ class Repository @Inject constructor(
 
         withContext(Dispatchers.IO) {
             for (index in 1..NUMBER_OF_POKEMON) {
-                val response = service.getPokemon(index.toString())
-                if (response.isSuccessful) {
-                    parsePokemon(response.body())
+                try {
+                    val response = service.getPokemon(index.toString())
+                    if (response.isSuccessful) {
+                        parsePokemon(response.body())
+                    }
+                } catch (err: IOException) {
+                    err.printStackTrace()
                 }
             }
         }
