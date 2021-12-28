@@ -11,13 +11,10 @@ class MainUseCase @Inject constructor(
 ) {
 
     suspend fun getPokemonList(): List<Pokemon> {
-        var pokemonList: List<Pokemon>?
+        var pokemonList: List<Pokemon>
         withContext(Dispatchers.IO) {
-            pokemonList = repository.getAll()
-            if (pokemonList == null) {
-                pokemonList = repository.fetchPokemon()
-            }
+            pokemonList = repository.fetchPokemon()
         }
-        return pokemonList!!
+        return pokemonList
     }
 }

@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.34375" />
+        <entry key="app/src/main/res/layout/dialog_indicator.xml" value="0.34375" />
         <entry key="app/src/main/res/layout/pokemon_item_list.xml" value="0.1" />
       </map>
     </option>

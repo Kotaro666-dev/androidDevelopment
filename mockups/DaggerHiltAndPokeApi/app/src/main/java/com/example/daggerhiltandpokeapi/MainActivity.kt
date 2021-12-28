@@ -42,6 +42,8 @@ class MainActivity : AppCompatActivity() {
             adapter = viewAdapter
         }
 
+        viewModel.getPokemonList(this.supportFragmentManager)
+
         viewModel.pokemonList.observe(this) { pokemonList ->
             (this.viewAdapter as CustomAdapter).updatePokemonList(pokemonList)
         }
