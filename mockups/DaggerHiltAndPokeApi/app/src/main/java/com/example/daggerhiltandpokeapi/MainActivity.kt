@@ -1,6 +1,7 @@
 package com.example.daggerhiltandpokeapi
 
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -42,10 +43,22 @@ class MainActivity : AppCompatActivity() {
             adapter = viewAdapter
         }
 
-        viewModel.getPokemonList(this.supportFragmentManager)
+        viewModel.fetchPokemonList(this.supportFragmentManager)
+
+        viewModel.isError.observe(this) { isError ->
+            if (isError == true) {
+                AlertDialog.Builder(this)
+                    .setTitle("エラー")
+                    .setMessage("通信エラーが発生しました。")
+                    .setPositiveButton("OK") { _, _ -> }
+                    .show()
+            }
+        }
 
         viewModel.pokemonList.observe(this) { pokemonList ->
-            (this.viewAdapter as CustomAdapter).updatePokemonList(pokemonList)
+            if (pokemonList != null) {
+                (this.viewAdapter as CustomAdapter).updatePokemonList(pokemonList)
+            }
         }
         setContentView(binding.root)
     }

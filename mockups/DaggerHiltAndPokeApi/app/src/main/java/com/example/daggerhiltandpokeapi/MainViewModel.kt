@@ -20,11 +20,20 @@ class MainViewModel @Inject constructor(
     val pokemonList: LiveData<List<Pokemon>>
         get() = _pokemonList
 
-    fun getPokemonList(fragmentManager: FragmentManager) {
+    private val _isError = useCase.repository.isError
+    val isError: LiveData<Boolean>
+        get() = _isError
+
+    fun fetchPokemonList(fragmentManager: FragmentManager) {
         viewModelScope.launch {
             coordinator.displayDialogIndicator(fragmentManager)
-            _pokemonList.value = useCase.getPokemonList()
+            useCase.fetchPokemonList()
+            updatePokemonList()
             coordinator.dismissDialogIndicator()
         }
+    }
+
+    private fun updatePokemonList() {
+        _pokemonList.value = useCase.repository.pokemonList.value
     }
 }

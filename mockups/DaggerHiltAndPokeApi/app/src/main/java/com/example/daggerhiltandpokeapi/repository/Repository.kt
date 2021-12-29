@@ -1,5 +1,7 @@
 package com.example.daggerhiltandpokeapi.repository
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.example.daggerhiltandpokeapi.database.MyDatabase
 import com.example.daggerhiltandpokeapi.model.PokeApiModel
 import kotlinx.coroutines.Dispatchers
@@ -16,15 +18,22 @@ class Repository @Inject constructor(
     private val pokemonStore: PokemonStore,
     private val database: MyDatabase,
 ) {
-
     companion object {
         private const val BASE_URL = "https://pokeapi.co"
         private const val NUMBER_OF_POKEMON = 100
     }
 
-    private val pokemonList = mutableListOf<Pokemon>()
+    private val tempList = mutableListOf<Pokemon>()
 
-    suspend fun fetchPokemon(): List<Pokemon> {
+    private val _pokemonList = MutableLiveData<MutableList<Pokemon>>()
+    val pokemonList: LiveData<MutableList<Pokemon>>
+        get() = _pokemonList
+
+    private val _isError = MutableLiveData<Boolean>()
+    val isError: LiveData<Boolean>
+        get() = _isError
+
+    suspend fun fetchPokemon() {
         val service = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -38,18 +47,22 @@ class Repository @Inject constructor(
                     if (response.isSuccessful) {
                         parsePokemon(response.body())
                     }
-                } catch (err: IOException) {
-                    err.printStackTrace()
+                } catch (exception: IOException) {
+                    _isError.postValue(true)
+                    exception.printStackTrace()
+                    break
                 }
             }
         }
-        insertAll()
-        return pokemonList
+        _pokemonList.postValue(tempList)
     }
 
-    private suspend fun insertAll() {
+    suspend fun insertAll() {
+        if (_pokemonList.value == null) {
+            return
+        }
         withContext(Dispatchers.IO) {
-            database.pokemonDatabase.insertAll(pokemonList)
+            database.pokemonDatabase.insertAll(_pokemonList.value!!)
         }
     }
 
@@ -68,7 +81,7 @@ class Repository @Inject constructor(
                 name = pokemonApiModel.name ?: "",
                 imageUrl = pokemonApiModel.sprites.front_default ?: ""
             )
-            pokemonList.add(pokemon)
+            tempList.add(pokemon)
         }
     }
 }
