@@ -1,19 +1,11 @@
-# BottomNavigationView と PageViewer2 のコンビネーションによる画面遷移
+# Detect if fragment is visible
 
-## メリット
+## 投稿記事
 
-各タブ（フラグメント）押下ごとに、フラグメントが再構築（初期化）されない。
+準備中...
 
-## デメリット
+## 使用技術
 
-各フラグメントのインスタンス化は、FragmentStateAdapter が MainAcitivity でインスタンス可されるときに実行される。
-そのため、初めてフラグメントのページに訪問した時にインスタンス可されない。
-
-そのことから、例としてホーム画面が生成された時に各画面のフラグメントのインスタンスが生成されてしまうため、各画面にて行いたいAPI通信が最初にすべて実行されてしまう問題がある。'
-
-
-
-
-
-
-
+- [BottomNavigationView](https://developer.android.com/reference/com/google/android/material/bottomnavigation/BottomNavigationView)
+- [ViewPager2](https://developer.android.com/jetpack/androidx/releases/viewpager2)
+- [setMenuVisibility](https://developer.android.com/reference/androidx/fragment/app/Fragment.html#setMenuVisibility(boolean))
