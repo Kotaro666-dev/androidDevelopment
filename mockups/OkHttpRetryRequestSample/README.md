@@ -2,7 +2,7 @@
 
 ## 該当記事
 
-準備中...
+https://zenn.dev/kotaro666/articles/okhttp_retry_request
 
 ## 使用ライブラリ
 
