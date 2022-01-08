@@ -15,22 +15,16 @@ class ViewFragment : Fragment() {
         private const val TAG_DIALOG = TITLE_DIALOG
     }
 
-    private var _binding: FragmentViewBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentViewBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentViewBinding.inflate(layoutInflater, container, false)
+        binding = FragmentViewBinding.inflate(layoutInflater, container, false)
 
         return binding.root
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 
     override fun setMenuVisibility(menuVisible: Boolean) {
