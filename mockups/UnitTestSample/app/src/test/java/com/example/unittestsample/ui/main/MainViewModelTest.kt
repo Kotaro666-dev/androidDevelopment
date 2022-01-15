@@ -49,7 +49,7 @@ class MainViewModelTest {
 
         @Test
         fun `Return false when date is 21th`() {
-            val result = viewModel.isDateInRange("20220109")
+            val result = viewModel.isDateInRange("20220121")
             assertThat(result).isFalse()
         }
 
