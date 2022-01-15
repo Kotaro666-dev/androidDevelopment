@@ -10,7 +10,7 @@ class MainViewModel : ViewModel() {
 
     init {
         val targetDate = getTargetDate()
-        _isVisible.postValue(isCurrentDateInRange(targetDate))
+        _isVisible.postValue(isDateInRange(targetDate))
     }
 
     /**
@@ -22,17 +22,21 @@ class MainViewModel : ViewModel() {
     }
 
     /**
-     *　targetDate の日付が10日から20日の間であるかを判定する
+     *　日付が 10 日から 20 日の間であるかを判定する
      */
-    fun isCurrentDateInRange(date: String): Boolean {
-        val currentDay = date.substring(START_INDEX)
-        if (currentDay in STARTING_DAY..ENDING_DAY) {
+    fun isDateInRange(date: String): Boolean {
+        if (date.length != DATE_EXPECTED_LENGTH) {
+            return false
+        }
+        val day = date.substring(START_INDEX)
+        if (day in STARTING_DAY..ENDING_DAY) {
             return true
         }
         return false
     }
 
     companion object {
+        private const val DATE_EXPECTED_LENGTH = 8
         private const val STARTING_DAY = "10"
         private const val ENDING_DAY = "20"
         private const val START_INDEX = 6
