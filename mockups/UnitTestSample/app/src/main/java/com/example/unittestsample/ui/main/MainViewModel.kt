@@ -17,13 +17,14 @@ class MainViewModel : ViewModel() {
      * 通常であればリポジトリから引っ張る
      */
     private fun getTargetDate(): String {
-        return "20220119"
+        // ここでは仮の日付を返します
+        return "20220115"
     }
 
     /**
      *　targetDate の日付が10日から20日の間であるかを判定する
      */
-    private fun isCurrentDateInRange(date: String): Boolean {
+    fun isCurrentDateInRange(date: String): Boolean {
         val currentDay = date.substring(START_INDEX)
         if (currentDay in STARTING_DAY..ENDING_DAY) {
             return true
