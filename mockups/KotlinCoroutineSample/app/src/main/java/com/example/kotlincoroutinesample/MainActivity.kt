@@ -26,7 +26,12 @@ class MainActivity : AppCompatActivity() {
 
         binding.buttonRequestApi.setOnClickListener {
             resetUiAttributes()
+            // 並行処理
             viewModel.requestApi()
+            // 並列処理 with async/await
+            viewModel.requestApiWithAsyncAndAwait()
+            // 並列処理 with launch/join
+            viewModel.requestApiWithLaunchAndJoin()
         }
 
         viewModel.isLoading.observe(this) { isLoading ->
