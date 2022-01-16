@@ -66,17 +66,17 @@ class MainViewModel : ViewModel() {
     }
 
     private suspend fun fetchApi1() = withContext(Dispatchers.IO) {
-        delay(3_000)
+        delay(1_000)
         _dataFromApi1.postValue("Kotlin")
     }
 
     private suspend fun fetchApi2() = withContext(Dispatchers.IO) {
-        delay(3_000)
+        delay(1_000)
         _dataFromApi2.postValue("Is")
     }
 
     private suspend fun fetchApi3() = withContext(Dispatchers.IO) {
-        delay(3_000)
+        delay(1_000)
         _dataFromApi3.postValue("Great")
     }
 }
