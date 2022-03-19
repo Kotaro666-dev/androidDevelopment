@@ -3,8 +3,9 @@ package com.example.mercariinjetpackcompose
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.sp
+import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -35,10 +36,11 @@ fun App() {
                             )
                         },
                         label = {
+                            val density = LocalDensity.current
                             Text(
                                 stringResource(screen.resourceId),
                                 softWrap = false,
-                                fontSize = 10.sp
+                                fontSize = with(density) { 10.dp.toSp() }
                             )
                         },
                         selected = currentRoute == screen.route, onClick = {
