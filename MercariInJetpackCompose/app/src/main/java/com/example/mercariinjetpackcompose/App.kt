@@ -30,11 +30,13 @@ fun App() {
                 val navBackStackEntry by navController.currentBackStackEntryAsState()
                 val currentRoute = navBackStackEntry?.destination?.route
                 bottomTabBarItems.forEach { screen ->
+                    val iconImageVector =
+                        if (currentRoute == screen.route) screen.selectedIcon else screen.defaultIcon
                     BottomNavigationItem(
                         icon = {
                             Icon(
-                                imageVector = screen.icon,
-                                contentDescription = screen.route
+                                imageVector = iconImageVector,
+                                contentDescription = screen.route,
                             )
                         },
                         label = {
@@ -45,7 +47,8 @@ fun App() {
                                 fontSize = with(density) { 10.dp.toSp() }
                             )
                         },
-                        selected = currentRoute == screen.route, onClick = {
+                        selected = currentRoute == screen.route,
+                        onClick = {
                             navController.navigate(screen.route) {
                                 // Pop up to the start destination of the graph to
                                 // avoid building up a large stack of destinations
@@ -61,7 +64,8 @@ fun App() {
                                 // Restore state when reselecting a previously selected item
                                 restoreState = true
                             }
-                        })
+                        }
+                    )
                 }
             }
         }
