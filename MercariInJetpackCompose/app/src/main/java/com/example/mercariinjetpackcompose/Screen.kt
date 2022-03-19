@@ -14,9 +14,9 @@ sealed class Screen(val route: String, @StringRes val resourceId: Int, val icon:
         Icons.Filled.Notifications
     )
 
-    object Post : Screen(Constants.POST_SCREEN_ROUTE_NAME, R.string.post, Icons.Default.Phone)
+    object Post : Screen(Constants.POST_SCREEN_ROUTE_NAME, R.string.post, Icons.Default.PhotoCamera)
     object Merpay :
-        Screen(Constants.MERPAY_SCREEN_ROUTE_NAME, R.string.merpay, Icons.Default.AccountBox)
+        Screen(Constants.MERPAY_SCREEN_ROUTE_NAME, R.string.merpay, Icons.Default.QrCode)
 
     object MyPage :
         Screen(Constants.MY_PAGE_SCREEN_ROUTE_NAME, R.string.my_page, Icons.Default.Person)
