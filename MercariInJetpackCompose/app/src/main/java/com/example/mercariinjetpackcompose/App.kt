@@ -72,7 +72,7 @@ fun App() {
     ) {
         NavHost(
             navController = navController,
-            startDestination = Screen.Notification.route
+            startDestination = Screen.Home.route
         ) {
             composable(Screen.Home.route) { HomePage(navController) }
             composable(Screen.Notification.route) { NotificationPage(navController) }

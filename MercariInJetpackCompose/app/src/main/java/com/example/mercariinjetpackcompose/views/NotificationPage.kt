@@ -5,10 +5,12 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccessTime
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -32,7 +34,6 @@ fun NotificationPage(navController: NavHostController) {
 @ExperimentalPagerApi
 @Composable
 fun TopPageTabs() {
-    var tabIndex by remember { mutableStateOf(Constants.NOTIFICATION_PAGE_INITIAL_TAB_INDEX) }
     val tabTitles = listOf("お知らせ", "ニュース")
     val pagerState = rememberPagerState()
     val scope = rememberCoroutineScope()
@@ -44,25 +45,41 @@ fun TopPageTabs() {
                     Modifier.pagerTabIndicatorOffset(
                         pagerState,
                         tabPositions
-                    )
+                    ),
+                    color = Color.Red
                 )
-            }
+            },
         ) {
             tabTitles.forEachIndexed { index, title ->
+                val isSelected = pagerState.currentPage == index
+                val isLeaningTowardsNotificationTab =
+                    (pagerState.currentPage == index && pagerState.currentPageOffset < 0.5F)
+                            || (pagerState.currentPage != index && pagerState.currentPageOffset < -0.5F)
+                val isLeaningTowardsNewsTab =
+                    (pagerState.currentPage != index && 0.5F < pagerState.currentPageOffset)
+                            || (pagerState.currentPage == index && -0.5F < pagerState.currentPageOffset)
                 Tab(
-                    selected = pagerState.currentPage == index,
+                    selected = isSelected,
                     onClick = {
-                        tabIndex = index
                         scope.launch {
-                            pagerState.animateScrollToPage(tabIndex)
+                            pagerState.animateScrollToPage(index)
                         }
                     },
-                    text = { Text(title) }
+                    text = {
+                        Text(
+                            title,
+                            color = if (
+                                (index == Constants.NOTIFICATION_PAGE_NOTIFICATION_TAB_INDEX && isLeaningTowardsNotificationTab)
+                                || (index == Constants.NOTIFICATION_PAGE_NEWS_TAB_INDEX && isLeaningTowardsNewsTab)
+                            ) Color.Red else Color.Gray,
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
                 )
             }
         }
-        HorizontalPager(count = tabTitles.size, state = pagerState) { tabIndex ->
-            when (tabIndex) {
+        HorizontalPager(count = tabTitles.size, state = pagerState) { index ->
+            when (index) {
                 0 -> NotificationTabPage()
                 1 -> NewsTabPage()
             }
