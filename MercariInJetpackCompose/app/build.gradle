@@ -61,6 +61,16 @@ dependencies {
 
     implementation("androidx.navigation:navigation-compose:$nav_version")
 
+    // Coil
     implementation("io.coil-kt:coil-compose:2.0.0-rc01")
+
+    // Additional Icon
     implementation "androidx.compose.material:material-icons-extended:$compose_version"
+
+    // Pager（https://google.github.io/accompanist/）
+    implementation "com.google.accompanist:accompanist-pager:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-pager-indicators:$accompanist_version"
+
+    // Coroutine
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
 }
