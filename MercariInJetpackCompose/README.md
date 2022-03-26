@@ -89,3 +89,12 @@ Column {
 ```
 
 参考サイト：https://stackoverflow.com/questions/66703448/how-to-disable-ripple-effect-when-clicking-in-jetpack-compose
+
+## ボトムナビゲーションバーの表示/非表示切替
+
+以下の資料を参照して実装
+
+hide Top and Bottom Navigator on a specific screen inside Scaffold Jetpack Compose
+https://stackoverflow.com/questions/66837991/hide-top-and-bottom-navigator-on-a-specific-screen-inside-scaffold-jetpack-compo
+
+アプローチの方法として、ボトムナビゲーションバーウィジェット箇所を AnimatedVisibility を使用して切り替える
