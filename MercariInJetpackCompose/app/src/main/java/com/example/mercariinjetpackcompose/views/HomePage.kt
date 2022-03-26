@@ -4,23 +4,28 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.mercariinjetpackcompose.constant.Constants
+import com.google.accompanist.pager.ExperimentalPagerApi
+import com.google.accompanist.pager.HorizontalPager
+import com.google.accompanist.pager.pagerTabIndicatorOffset
+import com.google.accompanist.pager.rememberPagerState
+import kotlinx.coroutines.launch
 
+@ExperimentalPagerApi
 @Composable
 fun HomePage(navController: NavHostController) {
     Scaffold {
@@ -28,6 +33,7 @@ fun HomePage(navController: NavHostController) {
             modifier = Modifier.fillMaxSize(),
         ) {
             HomeAppBar(navController)
+            CategoriesField()
         }
     }
 }
@@ -94,6 +100,83 @@ fun RowScope.TodoListIconButton(
                 .size(30.dp)
                 .weight(weightValue)
         )
+    }
+}
+
+@ExperimentalPagerApi
+@Composable
+fun CategoriesField() {
+    val categories = listOf(
+        "おすすめ",
+        "ショップ",
+        "保存した検索条件"
+    )
+    val pagerState = rememberPagerState()
+    val scope = rememberCoroutineScope()
+    Column {
+        ScrollableTabRow(
+            selectedTabIndex = pagerState.currentPage,
+            indicator = { tabPositions ->
+                TabRowDefaults.Indicator(
+                    Modifier.pagerTabIndicatorOffset(
+                        pagerState,
+                        tabPositions
+                    ),
+                    color = Color.Red
+                )
+            },
+        ) {
+            categories.forEachIndexed { index, category ->
+                val isSelected = pagerState.currentPage == index
+                Tab(
+                    selected = isSelected,
+                    onClick = {
+                        scope.launch {
+                            pagerState.animateScrollToPage(index)
+                        }
+                    },
+                ) {
+                    Text(
+                        text = category,
+                        color = if (index == pagerState.currentPage) Color.Red else Color.Black
+                    )
+                }
+            }
+        }
+        HorizontalPager(count = categories.size, state = pagerState) { index ->
+            when (index) {
+                0 -> RecommendedItemScreen()
+                1 -> ShopScreen()
+                2 -> SavedSearchConditionScreen()
+            }
+        }
+    }
+}
+
+@Composable
+fun RecommendedItemScreen() {
+    LazyColumn {
+        items(100) {
+            Text("おすすめ")
+        }
+    }
+}
+
+@Composable
+fun ShopScreen() {
+    LazyColumn {
+        items(100) {
+            Text("ショップ")
+        }
+    }
+}
+
+@Composable
+fun SavedSearchConditionScreen() {
+    LazyColumn {
+        items(100) {
+            Text("検索した保存条件")
+        }
     }
 }
 
