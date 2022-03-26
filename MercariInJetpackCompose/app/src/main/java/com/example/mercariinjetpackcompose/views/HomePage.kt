@@ -28,12 +28,14 @@ import kotlinx.coroutines.launch
 @ExperimentalPagerApi
 @Composable
 fun HomePage(navController: NavHostController) {
+    val categories = initializeCategories()
+    val initialPage = categories.size / 2 + 2
     Scaffold {
         Column(
             modifier = Modifier.fillMaxSize(),
         ) {
             HomeAppBar(navController)
-            CategoriesField()
+            CategoriesField(categories = categories, initialPage = initialPage)
         }
     }
 }
@@ -105,13 +107,8 @@ fun RowScope.TodoListIconButton(
 
 @ExperimentalPagerApi
 @Composable
-fun CategoriesField() {
-    val categories = listOf(
-        "おすすめ",
-        "ショップ",
-        "保存した検索条件"
-    )
-    val pagerState = rememberPagerState()
+fun CategoriesField(categories: List<String>, initialPage: Int) {
+    val pagerState = rememberPagerState(initialPage)
     val scope = rememberCoroutineScope()
     Column {
         ScrollableTabRow(
@@ -125,6 +122,8 @@ fun CategoriesField() {
                     color = Color.Red
                 )
             },
+            modifier = Modifier
+                .height(50.dp)
         ) {
             categories.forEachIndexed { index, category ->
                 val isSelected = pagerState.currentPage == index
@@ -135,22 +134,36 @@ fun CategoriesField() {
                             pagerState.animateScrollToPage(index)
                         }
                     },
+                    modifier = Modifier.padding(bottom = 10.dp)
                 ) {
                     Text(
                         text = category,
-                        color = if (index == pagerState.currentPage) Color.Red else Color.Black
+                        color = if (index == pagerState.currentPage) Color.Red else Color.Black,
                     )
                 }
             }
         }
         HorizontalPager(count = categories.size, state = pagerState) { index ->
-            when (index) {
+            when (index % 3) {
                 0 -> RecommendedItemScreen()
                 1 -> ShopScreen()
                 2 -> SavedSearchConditionScreen()
             }
         }
     }
+}
+
+@Composable
+fun initializeCategories(): List<String> {
+    val categories = mutableListOf<String>()
+    for (index in 0..500) {
+        when (index % 3) {
+            0 -> categories.add("おすすめ")
+            1 -> categories.add("ショップ")
+            2 -> categories.add("保存した検索条件")
+        }
+    }
+    return categories
 }
 
 @Composable
