@@ -6,6 +6,8 @@ object Constants {
     const val POST_SCREEN_ROUTE_NAME = "post"
     const val MERPAY_SCREEN_ROUTE_NAME = "merpay"
     const val MY_PAGE_SCREEN_ROUTE_NAME = "my_page"
+    const val SEARCH_ROUTE_PAGE = "serach_page"
+    const val TODO_LIST_ROUTE_PAGE = "todo_list_page"
 
 
     // お知らせページ

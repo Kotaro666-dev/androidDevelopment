@@ -10,8 +10,8 @@ import com.example.mercariinjetpackcompose.constant.Constants
 sealed class Screen(
     val route: String,
     @StringRes val resourceId: Int,
-    val defaultIcon: ImageVector,
-    val selectedIcon: ImageVector
+    val defaultIcon: ImageVector? = null,
+    val selectedIcon: ImageVector? = null
 ) {
     object Home : Screen(
         Constants.HOME_SCREEN_ROUTE_NAME,
@@ -49,5 +49,17 @@ sealed class Screen(
             R.string.my_page,
             Icons.Outlined.Person,
             Icons.Filled.Person
+        )
+
+    object SearchPage :
+        Screen(
+            Constants.SEARCH_ROUTE_PAGE,
+            R.string.search_page,
+        )
+
+    object TodoListPage :
+        Screen(
+            Constants.TODO_LIST_ROUTE_PAGE,
+            R.string.todo_list_page,
         )
 }

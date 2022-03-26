@@ -5,4 +5,6 @@
     <string name="post">出品</string>
     <string name="merpay">メルペイ</string>
     <string name="my_page">マイページ</string>
+    <string name="search_page">検索画面</string>
+    <string name="todo_list_page">やることリスト</string>
 </resources>
