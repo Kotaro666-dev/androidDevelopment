@@ -19,6 +19,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import com.example.mercariinjetpackcompose.constant.Constants
+import com.example.mercariinjetpackcompose.model.News
 import com.example.mercariinjetpackcompose.model.NotificationMessage
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
@@ -33,14 +34,15 @@ fun NotificationPage(
     viewModel: NotificationPageViewModel = viewModel()
 ) {
     val notifications by viewModel.notifications.observeAsState(mutableListOf())
+    val news by viewModel.news.observeAsState(mutableListOf())
     Scaffold {
-        TopPageTabs(notifications = notifications)
+        TopPageTabs(notifications = notifications, news = news)
     }
 }
 
 @ExperimentalPagerApi
 @Composable
-fun TopPageTabs(notifications: MutableList<NotificationMessage>) {
+fun TopPageTabs(notifications: MutableList<NotificationMessage>, news: MutableList<News>) {
     val tabTitles = listOf("お知らせ", "ニュース")
     val pagerState = rememberPagerState()
     val scope = rememberCoroutineScope()
@@ -88,7 +90,7 @@ fun TopPageTabs(notifications: MutableList<NotificationMessage>) {
         HorizontalPager(count = tabTitles.size, state = pagerState) { index ->
             when (index) {
                 0 -> NotificationTabPage(notifications)
-                1 -> NewsTabPage()
+                1 -> NewsTabPage(news)
             }
         }
     }
@@ -149,10 +151,10 @@ fun ItemDescription(date: String, description: String) {
 }
 
 @Composable
-fun NewsTabPage() {
+fun NewsTabPage(news: MutableList<News>) {
     LazyColumn {
-        items(100) {
-            NewsItem()
+        items(news.size) { index ->
+            NewsItem(description = news[index].description, date = news[index].date)
             Divider(
                 color = Color.Gray,
                 thickness = 0.5.dp,
@@ -162,7 +164,7 @@ fun NewsTabPage() {
 }
 
 @Composable
-fun NewsItem() {
+fun NewsItem(description: String, date: String) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -171,8 +173,8 @@ fun NewsItem() {
         verticalAlignment = Alignment.CenterVertically
     ) {
         Column {
-            Text("【3/19 10:00 追記】「東北地方を中心とする地震」に伴う配送遅延について")
-            Date("2022/03/18 10:00")
+            Text(description)
+            Date(date)
         }
     }
 }
