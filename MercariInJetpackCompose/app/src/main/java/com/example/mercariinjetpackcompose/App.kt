@@ -17,6 +17,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.mercariinjetpackcompose.constant.Constants
 import com.example.mercariinjetpackcompose.views.*
+import com.example.mercariinjetpackcompose.views.home.HomePage
 import com.google.accompanist.pager.ExperimentalPagerApi
 
 @ExperimentalPagerApi

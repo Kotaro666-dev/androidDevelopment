@@ -1,4 +1,4 @@
-package com.example.mercariinjetpackcompose.views
+package com.example.mercariinjetpackcompose.views.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -11,12 +11,15 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.example.mercariinjetpackcompose.constant.Constants
 import com.google.accompanist.pager.ExperimentalPagerApi
@@ -27,9 +30,9 @@ import kotlinx.coroutines.launch
 
 @ExperimentalPagerApi
 @Composable
-fun HomePage(navController: NavHostController) {
-    val categories = initializeCategories()
-    val initialPage = categories.size / 2 + 2
+fun HomePage(navController: NavHostController, viewModel: HomePageViewModel = viewModel()) {
+    val categories by viewModel.categories.observeAsState(mutableListOf())
+    val initialPage: Int by viewModel.initialPage.observeAsState(0)
     Scaffold {
         Column(
             modifier = Modifier.fillMaxSize(),
@@ -151,19 +154,6 @@ fun CategoriesField(categories: List<String>, initialPage: Int) {
             }
         }
     }
-}
-
-@Composable
-fun initializeCategories(): List<String> {
-    val categories = mutableListOf<String>()
-    for (index in 0..500) {
-        when (index % 3) {
-            0 -> categories.add("おすすめ")
-            1 -> categories.add("ショップ")
-            2 -> categories.add("保存した検索条件")
-        }
-    }
-    return categories
 }
 
 @Composable
