@@ -1,4 +1,4 @@
-package com.example.mercariinjetpackcompose.views
+package com.example.mercariinjetpackcompose.views.notification
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -6,17 +6,20 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccessTime
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import com.example.mercariinjetpackcompose.constant.Constants
+import com.example.mercariinjetpackcompose.model.NotificationMessage
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.pagerTabIndicatorOffset
@@ -25,15 +28,19 @@ import kotlinx.coroutines.launch
 
 @ExperimentalPagerApi
 @Composable
-fun NotificationPage(navController: NavHostController) {
+fun NotificationPage(
+    navController: NavHostController,
+    viewModel: NotificationPageViewModel = viewModel()
+) {
+    val notifications by viewModel.notifications.observeAsState(mutableListOf())
     Scaffold {
-        TopPageTabs()
+        TopPageTabs(notifications = notifications)
     }
 }
 
 @ExperimentalPagerApi
 @Composable
-fun TopPageTabs() {
+fun TopPageTabs(notifications: MutableList<NotificationMessage>) {
     val tabTitles = listOf("お知らせ", "ニュース")
     val pagerState = rememberPagerState()
     val scope = rememberCoroutineScope()
@@ -58,6 +65,9 @@ fun TopPageTabs() {
                 val isLeaningTowardsNewsTab =
                     (pagerState.currentPage != index && 0.5F < pagerState.currentPageOffset)
                             || (pagerState.currentPage == index && -0.5F < pagerState.currentPageOffset)
+                val isTabFocused =
+                    (index == Constants.NOTIFICATION_PAGE_NOTIFICATION_TAB_INDEX && isLeaningTowardsNotificationTab)
+                            || (index == Constants.NOTIFICATION_PAGE_NEWS_TAB_INDEX && isLeaningTowardsNewsTab)
                 Tab(
                     selected = isSelected,
                     onClick = {
@@ -68,10 +78,7 @@ fun TopPageTabs() {
                     text = {
                         Text(
                             title,
-                            color = if (
-                                (index == Constants.NOTIFICATION_PAGE_NOTIFICATION_TAB_INDEX && isLeaningTowardsNotificationTab)
-                                || (index == Constants.NOTIFICATION_PAGE_NEWS_TAB_INDEX && isLeaningTowardsNewsTab)
-                            ) Color.Red else Color.Gray,
+                            color = if (isTabFocused) Color.Red else Color.Gray,
                             fontWeight = FontWeight.Bold
                         )
                     }
@@ -80,7 +87,7 @@ fun TopPageTabs() {
         }
         HorizontalPager(count = tabTitles.size, state = pagerState) { index ->
             when (index) {
-                0 -> NotificationTabPage()
+                0 -> NotificationTabPage(notifications)
                 1 -> NewsTabPage()
             }
         }
@@ -88,10 +95,10 @@ fun TopPageTabs() {
 }
 
 @Composable
-fun NotificationTabPage() {
+fun NotificationTabPage(notifications: MutableList<NotificationMessage>) {
     LazyColumn {
-        items(100) {
-            NotificationMessageItem()
+        items(notifications.size) { index ->
+            NotificationMessageItem(notifications[index])
             Divider(
                 color = Color.Gray,
                 thickness = 0.5.dp,
@@ -101,21 +108,20 @@ fun NotificationTabPage() {
     }
 }
 
-@Preview
 @Composable
-fun NotificationMessageItem() {
+fun NotificationMessageItem(notification: NotificationMessage) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .height(100.dp)
     ) {
-        ItemImage()
-        ItemDescription()
+        ItemImage(notification.imageUrl)
+        ItemDescription(notification.date, notification.description)
     }
 }
 
 @Composable
-fun ItemImage() {
+fun ItemImage(imageUrl: String) {
     Row(
         modifier = Modifier
             .fillMaxHeight()
@@ -124,21 +130,21 @@ fun ItemImage() {
         verticalAlignment = Alignment.CenterVertically
     ) {
         AsyncImage(
-            model = "https://via.placeholder.com/120",
+            model = imageUrl,
             contentDescription = "Item Image"
         )
     }
 }
 
 @Composable
-fun ItemDescription() {
+fun ItemDescription(date: String, description: String) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .padding(top = 20.dp)
     ) {
-        Date("1日前")
-        Text("いいね！した「「ラストチャンス」○○」にコメントがつきました", modifier = Modifier.padding(end = 20.dp))
+        Date(date)
+        Text(description, modifier = Modifier.padding(end = 20.dp))
     }
 }
 

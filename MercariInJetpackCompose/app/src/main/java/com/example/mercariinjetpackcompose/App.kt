@@ -18,6 +18,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.mercariinjetpackcompose.constant.Constants
 import com.example.mercariinjetpackcompose.views.*
 import com.example.mercariinjetpackcompose.views.home.HomePage
+import com.example.mercariinjetpackcompose.views.notification.NotificationPage
 import com.google.accompanist.pager.ExperimentalPagerApi
 
 @ExperimentalPagerApi
