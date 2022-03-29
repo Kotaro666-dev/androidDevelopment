@@ -17,8 +17,12 @@ class HomePageViewModel : ViewModel() {
     init {
         viewModelScope.launch {
             launch { initializeCategories() }.join()
-            _initialPage.value = _categories.value?.size!! / 2 + 2
+            setInitialPageValue()
         }
+    }
+
+    private fun setInitialPageValue() {
+        _initialPage.value = _categories.value?.size!! / 2 + 2
     }
 
     private fun initializeCategories() {
