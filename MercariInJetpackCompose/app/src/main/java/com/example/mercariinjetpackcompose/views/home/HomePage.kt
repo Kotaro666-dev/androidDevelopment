@@ -4,7 +4,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -152,33 +151,6 @@ fun CategoriesField(categories: List<String>, initialPage: Int) {
                 1 -> ShopScreen()
                 2 -> SavedSearchConditionScreen()
             }
-        }
-    }
-}
-
-@Composable
-fun RecommendedItemScreen() {
-    LazyColumn {
-        items(100) {
-            Text("おすすめ")
-        }
-    }
-}
-
-@Composable
-fun ShopScreen() {
-    LazyColumn {
-        items(100) {
-            Text("ショップ")
-        }
-    }
-}
-
-@Composable
-fun SavedSearchConditionScreen() {
-    LazyColumn {
-        items(100) {
-            Text("検索した保存条件")
         }
     }
 }
