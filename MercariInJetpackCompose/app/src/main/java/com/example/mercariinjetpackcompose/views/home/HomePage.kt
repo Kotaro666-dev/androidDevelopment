@@ -8,6 +8,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBox
+import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -46,7 +47,7 @@ fun HomePage(navController: NavHostController, viewModel: HomePageViewModel = vi
 fun HomeAppBar(navController: NavHostController) {
     Row(
         modifier = Modifier
-            .height(40.dp)
+            .height(50.dp)
             .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
@@ -63,7 +64,7 @@ fun RowScope.SearchFieldButton(weightValue: Float, navController: NavHostControl
         modifier = Modifier
             .fillMaxHeight()
             .weight(weightValue)
-            .padding(start = 15.dp, top = 3.dp, bottom = 3.dp)
+            .padding(start = 15.dp, top = 8.dp, bottom = 8.dp)
             .background(
                 color = Color.LightGray,
                 shape = RoundedCornerShape(20.dp)
@@ -98,7 +99,7 @@ fun RowScope.TodoListIconButton(
             navController.navigate(Constants.TODO_LIST_ROUTE_PAGE)
         }) {
         Icon(
-            imageVector = Icons.Default.AccountBox,
+            imageVector = Icons.Default.Check,
             contentDescription = "Todo List",
             modifier = Modifier
                 .size(30.dp)
