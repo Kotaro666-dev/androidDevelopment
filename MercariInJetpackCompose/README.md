@@ -98,3 +98,88 @@ hide Top and Bottom Navigator on a specific screen inside Scaffold Jetpack Compo
 https://stackoverflow.com/questions/66837991/hide-top-and-bottom-navigator-on-a-specific-screen-inside-scaffold-jetpack-compo
 
 アプローチの方法として、ボトムナビゲーションバーウィジェット箇所を AnimatedVisibility を使用して切り替える
+
+## TextField のフォーカスについて
+
+### AutoFocus
+
+SearchBar 生成時に、`requestFocus` をしてあげた `focusRequester` を Modifier の focusRequester に渡してあげる
+
+```kotlin
+@ExperimentalComposeUiApi
+@Composable
+fun SearchBar(navController: NavHostController) {
+    val focusRequester = remember { FocusRequester() }
+
+    LaunchedEffect(Unit) {
+        focusRequester.requestFocus()
+    }
+
+    TopAppBar {
+        Row {
+            TextField(
+                modifier = Modifier
+                    .focusRequester(focusRequester),
+            )
+        }
+    }
+}
+```
+
+### 画面タップでunfocusする
+
+親ウィジェットを clickable にして対応する。
+
+```kotlin
+@ExperimentalComposeUiApi
+@Composable
+fun SearchPage(navController: NavHostController) {
+    val interactionSource = remember { MutableInteractionSource() }
+    val keyboardController = LocalSoftwareKeyboardController.current
+    val focusManager = LocalFocusManager.current
+
+    Scaffold(
+        modifier = Modifier.clickable(
+            interactionSource = interactionSource,
+            indication = null,
+        ) {
+            keyboardController?.hide()
+            focusManager.clearFocus(true)
+        }
+    ) {
+        Column {
+            Text("検索画面")
+        }
+    }
+}
+```
+
+### 「戻る」アイコンなどで画面が破棄されたときにも unfocus する方法
+
+`DisposableEffect` の `onDispose` 内で処理をする
+
+```kotlin
+@ExperimentalComposeUiApi
+@Composable
+fun SearchPage(navController: NavHostController) {
+    val keyboardController = LocalSoftwareKeyboardController.current
+    val focusManager = LocalFocusManager.current
+
+    DisposableEffect(Unit) {
+        onDispose {
+            keyboardController?.hide()
+            focusManager.clearFocus(true)
+        }
+    }
+
+    Scaffol {
+        Column {
+            Text("検索画面")
+        }
+    }
+}
+```
+
+
+
+
