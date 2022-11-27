@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MercariInJetpackCompose</string>
+    <string name="home">ホーム</string>
+    <string name="notification">お知らせ</string>
+    <string name="post">出品</string>
+    <string name="merpay">メルペイ</string>
+    <string name="my_page">マイページ</string>
+    <string name="search_page">検索画面</string>
+    <string name="todo_list_page">やることリスト</string>
+</resources>

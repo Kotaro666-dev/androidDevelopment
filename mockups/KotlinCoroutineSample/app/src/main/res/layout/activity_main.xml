@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.kotlincoroutinesample.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/text_data_from_api1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Data from API 1: "
+                android:textSize="20sp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/text_data_from_api2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Data from API 2: "
+                android:textSize="20sp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/text_data_from_api3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Data from API 3: "
+                android:textSize="20sp"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Click button and start requesting API!"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/button_request_api"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginBottom="50dp"
+            android:text="Request API"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="HardcodedText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
