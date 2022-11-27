@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_home"
+        android:title="ホーム"
+        android:icon="@drawable/ic_home_foreground"/>
+    <item
+        android:id="@+id/menu_favorite"
+        android:title="お気に入り"
+        android:icon="@drawable/ic_favorite_foreground"/>
+    <item
+        android:id="@+id/menu_search"
+        android:title="探す"
+        android:icon="@drawable/ic_search_foreground"/>
+    <item
+        android:id="@+id/menu_ranking"
+        android:title="ランキング"
+        android:icon="@drawable/ic_ranking_foreground"/>
+    <item
+        android:id="@+id/menu_setting"
+        android:title="設定"
+        android:icon="@drawable/ic_setting_foreground"/>
+</menu>
