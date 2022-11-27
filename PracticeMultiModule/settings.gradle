@@ -14,3 +14,8 @@ dependencyResolutionManagement {
 }
 rootProject.name = "PracticeMultiModule"
 include ':app'
+include ':home'
+include ':favorite'
+include ':search'
+include ':ranking'
+include ':setting'
