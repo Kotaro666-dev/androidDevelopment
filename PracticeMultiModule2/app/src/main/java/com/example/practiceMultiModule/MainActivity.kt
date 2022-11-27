@@ -9,7 +9,9 @@ import com.example.ranking.RankingFragment
 import com.example.search.SearchFragment
 import com.example.setting.SettingFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
