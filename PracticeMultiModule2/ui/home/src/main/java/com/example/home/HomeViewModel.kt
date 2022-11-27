@@ -1,18 +1,19 @@
 package com.example.home
 
 import androidx.lifecycle.ViewModel
+import com.example.domain.home.HomeUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    // TODO: Inject UseCase
+    private val homeUseCase: HomeUseCase,
 ) : ViewModel() {
 
-    val data = MutableStateFlow(0)
+    val message = MutableStateFlow("")
 
     init {
-        data.value = 10
+        message.value = homeUseCase.getValue();
     }
 }

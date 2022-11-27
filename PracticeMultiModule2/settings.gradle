@@ -21,3 +21,9 @@ include ':ui:favorite'
 include ':ui:search'
 include ':ui:ranking'
 include ':ui:setting'
+
+/// domain directory
+include ':domain:home'
+
+/// data directory
+include ':data:repository'

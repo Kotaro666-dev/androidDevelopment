@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.example.home.HomeViewModel" />
@@ -13,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
+        android:orientation="vertical"
         tools:context=".HomeFragment">
 
         <TextView
@@ -25,7 +27,7 @@
             android:id="@+id/data"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{viewModel.data.toString()}" />
+            android:text="@{viewModel.message.toString()}" />
 
     </LinearLayout>
 </layout>

@@ -7,7 +7,7 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 
 android {
-    namespace 'com.example.home'
+    namespace 'com.example.repository'
     compileSdk 32
 
     defaultConfig {
@@ -28,9 +28,6 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    dataBinding {
-        enabled = true
-    }
     kotlinOptions {
         jvmTarget = '1.8'
     }
@@ -45,15 +42,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
 
-    // ViewModel 関係
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
-    implementation 'androidx.fragment:fragment-ktx:1.5.4'
-
     // Hilt
     implementation 'com.google.dagger:hilt-android:2.44.2'
     kapt 'com.google.dagger:hilt-android-compiler:2.44.2'
-
-    /// domain directory
-    implementation project(path: ':domain:home')
 }
