@@ -42,5 +42,5 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
 
-    implementation project(path: ':home')
+    implementation project(path: ':ui:home')
 }
