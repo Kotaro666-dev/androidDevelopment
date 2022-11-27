@@ -14,4 +14,8 @@ dependencyResolutionManagement {
 }
 rootProject.name = "PracticeMultiModule"
 include ':app'
+
+/// ui directory
 include ':ui:home'
+include ':ui:favorite'
+include ':ui:search'
