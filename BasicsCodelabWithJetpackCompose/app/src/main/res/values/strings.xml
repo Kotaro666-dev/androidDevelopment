@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">BasicsCodelabWithJetpackCompose</string>
+    <string name="show_less">Show less</string>
+    <string name="show_more">Show more</string>
+    <string name="expanded_texts">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec erat urna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse in ex ligula. Pellentesque quis elit tellus. Nam lobortis ex eu convallis condimentum. Pellentesque magna augue, iaculis id rutrum vitae, rhoncus vel velit. Nunc ut turpis ipsum. Nam pharetra, felis a maximus egestas, tellus metus feugiat dolor, nec molestie lorem dolor quis sem. Vestibulum suscipit nisl nec sollicitudin vulputate.</string>
 </resources>
