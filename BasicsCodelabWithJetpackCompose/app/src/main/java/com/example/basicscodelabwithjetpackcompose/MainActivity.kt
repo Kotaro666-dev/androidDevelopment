@@ -103,7 +103,6 @@ private fun GreetingsPreview() {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Greeting(name: String) {
     Card(
