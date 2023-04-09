@@ -4,7 +4,7 @@ import com.example.counterappwithmvppattern.model.Counter
 import javax.inject.Inject
 
 class CounterRepositoryImpl @Inject constructor() : CounterRepository {
-    private var counter = Counter(0)
+    private var counter = Counter(Counter.INITIAL_VALUE)
 
     override fun getCounter(): Counter {
         return counter
