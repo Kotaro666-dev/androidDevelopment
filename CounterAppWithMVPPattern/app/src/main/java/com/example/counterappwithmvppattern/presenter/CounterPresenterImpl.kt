@@ -1,19 +1,27 @@
 package com.example.counterappwithmvppattern.presenter
 
-class CounterPresenterImpl : CounterPresenter {
+import com.example.counterappwithmvppattern.data.CounterRepository
+import com.example.counterappwithmvppattern.ui.CounterView
+import javax.inject.Inject
+
+class CounterPresenterImpl @Inject constructor(
+    private val view: CounterView,
+    private val repository: CounterRepository
+) : CounterPresenter {
+
+
     override fun loadCounter() {
-        TODO("Not yet implemented")
-        // Access Repository to get the counter
-        // Then, call showValue() on the View
+        val currentCount = repository.getCounter().count
+        view.showValue(currentCount)
     }
 
     override fun onIncrementButtonClicked() {
-        TODO("Not yet implemented")
-        // Access Repository to increment the counter
+        repository.incrementCounter()
+        loadCounter()
     }
 
     override fun onDecrementButtonClicked() {
-        TODO("Not yet implemented")
-        // Access Repository to decrement the counter
+        repository.decrementCounter()
+        loadCounter()
     }
 }
