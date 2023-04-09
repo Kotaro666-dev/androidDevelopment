@@ -1,5 +1,5 @@
 package com.example.counterappwithmvppattern.ui
 
 interface CounterView {
-    fun showValue(value: Int)
+    fun showCount(count: Int)
 }

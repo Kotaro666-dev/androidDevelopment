@@ -18,7 +18,8 @@ class MainActivity : AppCompatActivity(), CounterView {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        presenter.loadCounter()
+
+        presenter.updateCounterView()
 
         binding.incrementButton.setOnClickListener {
             println("Increment button clicked")
@@ -31,7 +32,7 @@ class MainActivity : AppCompatActivity(), CounterView {
         }
     }
 
-    override fun showValue(value: Int) {
-        binding.counterValue.text = value.toString()
+    override fun showCount(count: Int) {
+        binding.counterValue.text = count.toString()
     }
 }

@@ -9,19 +9,18 @@ class CounterPresenterImpl @Inject constructor(
     private val repository: CounterRepository
 ) : CounterPresenter {
 
-
-    override fun loadCounter() {
+    override fun updateCounterView() {
         val currentCount = repository.getCounter().count
-        view.showValue(currentCount)
+        view.showCount(currentCount)
     }
 
     override fun onIncrementButtonClicked() {
         repository.incrementCounter()
-        loadCounter()
+        updateCounterView()
     }
 
     override fun onDecrementButtonClicked() {
         repository.decrementCounter()
-        loadCounter()
+        updateCounterView()
     }
 }
