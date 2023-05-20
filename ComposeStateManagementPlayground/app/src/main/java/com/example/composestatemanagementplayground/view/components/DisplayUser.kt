@@ -1,4 +1,4 @@
-package com.example.composestatemanagementplayground.view
+package com.example.composestatemanagementplayground.view.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border

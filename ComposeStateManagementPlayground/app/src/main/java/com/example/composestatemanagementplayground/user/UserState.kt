@@ -1,4 +1,4 @@
-package com.example.composestatemanagementplayground.view.user
+package com.example.composestatemanagementplayground.user
 
 import com.example.composestatemanagementplayground.model.User
 

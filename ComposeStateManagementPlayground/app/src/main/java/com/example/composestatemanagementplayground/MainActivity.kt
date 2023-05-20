@@ -8,7 +8,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.example.composestatemanagementplayground.ui.theme.ComposeStateManagementPlaygroundTheme
-import com.example.composestatemanagementplayground.view.Body
+import com.example.composestatemanagementplayground.view.components.Body
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -1,4 +1,4 @@
-package com.example.composestatemanagementplayground.view.user
+package com.example.composestatemanagementplayground.user
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
