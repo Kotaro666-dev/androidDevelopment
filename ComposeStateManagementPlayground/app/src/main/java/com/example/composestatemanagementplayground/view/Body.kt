@@ -4,14 +4,16 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.composestatemanagementplayground.model.User
+import com.example.composestatemanagementplayground.view.user.LoadingState
 import com.example.composestatemanagementplayground.view.user.UserViewModel
 
 @Composable
@@ -19,12 +21,8 @@ fun Body(
     viewModel: UserViewModel = hiltViewModel(),
     modifier: Modifier = Modifier
 ) {
-    val user1 =
-        User(name = "Adam", age = 28, country = "United States")
-    val user2 =
-        User(name = "John", age = 31, country = "United Kingdom")
-    val user3 =
-        User(name = "Ana", age = 28, country = "Spain")
+    val state = viewModel.userState.collectAsState().value
+    val isLoading = state.loadingState == LoadingState.LOADING
     Column(
         modifier = modifier
             .fillMaxWidth()
@@ -38,9 +36,13 @@ fun Body(
         }) {
             Text("Fetch Users data")
         }
-        DisplayUser(user = user1)
-        DisplayUser(user = user2)
-        DisplayUser(user = user3)
+        if (isLoading) {
+            CircularProgressIndicator()
+        } else {
+            state.users.forEach {
+                DisplayUser(user = it)
+            }
+        }
         OutlinedButton(onClick = {
             viewModel.reset()
         }) {
