@@ -10,10 +10,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.composestatemanagementplayground.model.User
+import com.example.composestatemanagementplayground.view.user.UserViewModel
 
 @Composable
-fun Body(modifier: Modifier = Modifier) {
+fun Body(
+    viewModel: UserViewModel = hiltViewModel(),
+    modifier: Modifier = Modifier
+) {
     val user1 =
         User(name = "Adam", age = 28, country = "United States")
     val user2 =
@@ -29,15 +34,15 @@ fun Body(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         OutlinedButton(onClick = {
-            // TODO: ユーザーデータを取得する
+            viewModel.fetchUsers()
         }) {
-            Text("Fetch User data")
+            Text("Fetch Users data")
         }
         DisplayUser(user = user1)
         DisplayUser(user = user2)
         DisplayUser(user = user3)
         OutlinedButton(onClick = {
-            // TODO: ユーザーデータを初期化する
+            viewModel.reset()
         }) {
             Text("Reset")
         }
