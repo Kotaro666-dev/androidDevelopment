@@ -5,8 +5,11 @@ import androidx.lifecycle.viewModelScope
 import com.example.composestatemanagementplayground.data.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -15,6 +18,9 @@ import javax.inject.Inject
 class UserViewModel @Inject constructor(private val userRepository: UserRepository) : ViewModel() {
     private val _userState = MutableStateFlow(UserState())
     val userState: StateFlow<UserState> = _userState.asStateFlow()
+
+    private val _hasError = MutableSharedFlow<Unit>()
+    val hasError: SharedFlow<Unit> = _hasError.asSharedFlow()
 
     fun fetchUsers() {
         viewModelScope.launch(Dispatchers.IO) {
@@ -25,13 +31,12 @@ class UserViewModel @Inject constructor(private val userRepository: UserReposito
                         users = users,
                         loadingState = LoadingState.LOADED
                     )
-                    println(_userState.value)
                 }
-            } catch (_: Exception) {
+            } catch (e: Exception) {
                 _userState.value = _userState.value.copy(
                     loadingState = LoadingState.LOADED,
-                    hasError = true,
                 )
+                _hasError.emit(Unit)
             }
 
         }
